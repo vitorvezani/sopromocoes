@@ -26,6 +26,7 @@ gem 'bundler', '>= 1.8.4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
+  gem 'rails-assets-ngInfiniteScroll'
 end
 #-- Rails Assets
 

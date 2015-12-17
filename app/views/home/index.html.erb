@@ -5,47 +5,23 @@
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
   </div>
 </div>
-<div class="container">
-  <!-- Example row of columns -->
+<div class="container" ng-controller="PromotionsController">
   <div class"row">
-  	<div class="col-md-12">
-  		<div class="container-fluid" ng-app="app">
-			  <div class="panel panel-success">
-			    <div class="panel-heading">
-			      <h1 ng-if="name">Hello, {{name}}</h1>
-			    </div>
-			    <div class="panel-body">
-			      <form class="form-inline">
-			        <div class="form-group">
-			          <input class="form-control" type="text" placeholder="Enter your name" autofocus ng-model="name">
-			        </div>
-			      </form>
-			    </div>
-			  </div>
-			</div>
-  	</div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-   </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+    <div class="col-md-12">
+      <div infinite-scroll='soPromocoes.nextPage()' infinite-scroll-disabled='soPromocoes.busy' infinite-scroll-distance='1'>
+        <div ng-repeat='item in soPromocoes.items'>
+          <span class='score'>{{item.score}}</span>
+          <span class='title'>
+            <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
+          </span>
+          <small>by {{item.author}} -
+            <a ng-href='http://soPromocoes.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>
+          </small>
+          <div style='clear: both;'></div>
+        </div>
+        <div ng-show='soPromocoes.busy'>Carregando promoções...</div>
+      </div>
     </div>
   </div>
-
   <hr>
-
-  <footer>
-    <p>© 2015 Company, Inc.</p>
-  </footer>
 </div>

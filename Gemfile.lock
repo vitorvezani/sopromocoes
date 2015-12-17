@@ -132,6 +132,8 @@ GEM
     rails-assets-bootstrap (3.3.4)
       rails-assets-jquery (>= 1.9.1)
     rails-assets-jquery (2.1.4)
+    rails-assets-ngInfiniteScroll (1.2.1)
+      rails-assets-angular (>= 1.2.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -210,6 +212,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails-assets-angular!
   rails-assets-bootstrap!
+  rails-assets-ngInfiniteScroll!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
