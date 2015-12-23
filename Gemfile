@@ -40,7 +40,7 @@ end
 # gem 'capistrano-rails', group: :development
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Devise
 gem 'devise', '~> 3.5', '>= 3.5.3'
