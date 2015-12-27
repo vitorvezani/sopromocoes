@@ -6,20 +6,34 @@
   </div>
 </div>
 <div class="container" ng-controller="PromotionsController">
-  <div infinite-scroll='soPromocoes.nextPage()' infinite-scroll-disabled='soPromocoes.busy' infinite-scroll-distance='1'>
-    <div ng-repeat='item in soPromocoes.items'>
-      <div ngIf="$index % 4 == 0" class"row">
+  <div infinite-scroll='soPromocoes.nextPage()' infinite-scroll-disabled='soPromocoes.busy' infinite-scroll-distance='0'>
+    <div ng-repeat='item in soPromocoes.items track by $index'>
+      <div class"row">
         <div class="col-md-3 col-sm-6">
-          <span class='score'>{{item.score}}</span>
-          <span class='title'>
-            <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
-          </span>
-          <small>by {{item.author}} -
-            <a ng-href='http://soPromocoes.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>
-          </small>
-          <div style='clear: both;'></div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">{{item.name}}</div>
+            <div class="panel-body">
+              <div class="thumbnail">
+                <img class='img-' ng-src="{{item.img_link}}" alt="Description" height="200" width="242" />
+                <div class="caption">
+                  <h3>{{item.description}}</h3>
+                  <p class='price_from'>{{item.price_from}}</p>
+                  <p class='price_to'>{{item.price_to}}</p>
+                  <p class='price_billet'>{{item.price_billet}}</p>
+                  <p class='percent_discount'>{{item.percent_discount}}</p>
+                  <p class='init_at'>{{item.init_at}}</p>
+                  <p class='end_at'>{{item.end_at}}</p>
+                  <p class='link'>{{item.link}}</p>
+                  <p class='user_id'>{{item.user_id}}</p>
+                  <p class='created_at'>{{item.created_at}}</p>
+                  <p class='updated_at'>{{item.updated_at}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div ngIf="$index % 4 == 0">
+      </div>
     </div>
     <div ng-show='soPromocoes.busy'>Carregando promoções...</div>
   </div>
