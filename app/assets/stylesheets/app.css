@@ -1,5 +1,11 @@
+/* Fixed Top */
+body {
+  min-height: 2000px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
   position: relative;
   min-height: 100%;

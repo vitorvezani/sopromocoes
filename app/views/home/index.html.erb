@@ -6,10 +6,10 @@
   </div>
 </div>
 <div class="container" ng-controller="PromotionsController">
-  <div class"row">
-    <div class="col-md-12">
-      <div infinite-scroll='soPromocoes.nextPage()' infinite-scroll-disabled='soPromocoes.busy' infinite-scroll-distance='1'>
-        <div ng-repeat='item in soPromocoes.items'>
+  <div infinite-scroll='soPromocoes.nextPage()' infinite-scroll-disabled='soPromocoes.busy' infinite-scroll-distance='1'>
+    <div ng-repeat='item in soPromocoes.items'>
+      <div ngIf="$index % 4 == 0" class"row">
+        <div class="col-md-3 col-sm-6">
           <span class='score'>{{item.score}}</span>
           <span class='title'>
             <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
@@ -19,9 +19,9 @@
           </small>
           <div style='clear: both;'></div>
         </div>
-        <div ng-show='soPromocoes.busy'>Carregando promoções...</div>
-      </div>
+      </div ngIf="$index % 4 == 0">
     </div>
+    <div ng-show='soPromocoes.busy'>Carregando promoções...</div>
   </div>
   <hr>
 </div>
