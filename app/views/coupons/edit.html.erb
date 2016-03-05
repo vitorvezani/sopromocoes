@@ -1,6 +1,13 @@
-<h1>Editing Coupon</h1>
+<div class="page-header">
+  <%= link_to coupons_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @coupon, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing coupon</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @coupon %> |
-<%= link_to 'Back', coupons_path %>

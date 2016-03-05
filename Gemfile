@@ -78,6 +78,7 @@ group :development do
   gem 'quiet_assets', '~> 1.1'
   #  Bootstrap-generators provides Twitter Bootstrap generators for Rails 4 (supported Rails >= 3.1). Bootstrap is a toolkit from Twitter 
   #  designed to kickstart development of webapps and sites.
+  #  https://github.com/decioferreira/bootstrap-generators
   gem 'bootstrap-generators', '~> 3.3.4'
 end
 

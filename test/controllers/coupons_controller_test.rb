@@ -18,7 +18,7 @@ class CouponsControllerTest < ActionController::TestCase
 
   test "should create coupon" do
     assert_difference('Coupon.count') do
-      post :create, coupon: {  }
+      post :create, coupon: { affiliate: @coupon.affiliate, begin_at: @coupon.begin_at, code: @coupon.code, description: @coupon.description, enabled: @coupon.enabled, end_at: @coupon.end_at, name: @coupon.name, rules_url: @coupon.rules_url, store: @coupon.store, url: @coupon.url, user: @coupon.user }
     end
 
     assert_redirected_to coupon_path(assigns(:coupon))
@@ -35,7 +35,7 @@ class CouponsControllerTest < ActionController::TestCase
   end
 
   test "should update coupon" do
-    patch :update, id: @coupon, coupon: {  }
+    patch :update, id: @coupon, coupon: { affiliate: @coupon.affiliate, begin_at: @coupon.begin_at, code: @coupon.code, description: @coupon.description, enabled: @coupon.enabled, end_at: @coupon.end_at, name: @coupon.name, rules_url: @coupon.rules_url, store: @coupon.store, url: @coupon.url, user: @coupon.user }
     assert_redirected_to coupon_path(assigns(:coupon))
   end
 
