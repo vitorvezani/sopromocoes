@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :promotions
+  resources :stores
+  resources :coupons
+  
   get 'home/index'
 
   get 'home/about'
