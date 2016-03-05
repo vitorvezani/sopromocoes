@@ -1,6 +1,13 @@
-<h1>Editing Promotion</h1>
+<div class="page-header">
+  <%= link_to promotions_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @promotion, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing promotion</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @promotion %> |
-<%= link_to 'Back', promotions_path %>

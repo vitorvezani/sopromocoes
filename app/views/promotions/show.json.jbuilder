@@ -1,0 +1,1 @@
+json.extract! @promotion, :id, :name, :description, :external_id, :image_url, :discount, :price_from, :price_to, :price_billet, :url, :enabled, :affiliate, :begin_at, :end_at, :created_at, :updated_at

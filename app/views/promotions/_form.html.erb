@@ -1,67 +1,98 @@
-<%= form_for(@promotion) do |f| %>
+<%= form_for(@promotion, html: { class: "form-horizontal", role: "form" }) do |f| %>
   <% if @promotion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h4>
 
       <ul>
-      <% @promotion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @promotion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
- 
-  <p>
-    <%= f.label :price_from %><br>
-    <%= f.number_field :price_from %>
-  </p>
- 
-  <p>
-    <%= f.label :price_to %><br>
-    <%= f.number_field :price_to %>
-  </p>
- 
-  <p>
-    <%= f.label :price_billet %><br>
-    <%= f.number_field :price_billet %> 
-  </p>
- 
-  <p>
-    <%= f.label :percent_discount %><br>
-    <%= f.range_field :percent_discount, in: 1..100 %>
-  </p>
- 
-  <p>
-    <%= f.label :init_at %><br>
-    <%= f.datetime_field :init_at %>
-  </p>
- 
-  <p>
-    <%= f.label :end_at %><br>
-    <%= f.datetime_field :end_at %>
-  </p>
- 
-  <p>
-    <%= f.label :link %><br>
-    <%= f.text_area :link %>
-  </p>
- 
-  <p>
-    <%= f.label :img_link %><br>
-    <%= f.text_area :img_link %>
-  </p>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :external_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :external_id, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_url, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :image_url, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :discount, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :discount, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_from, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :price_from, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_to, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :price_to, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_billet, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :price_billet, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :url, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :url, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :enabled, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :enabled, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :affiliate, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :affiliate, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :begin_at, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.datetime_select :begin_at, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_at, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.datetime_select :end_at, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

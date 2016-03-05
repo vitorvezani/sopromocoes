@@ -1,23 +1,53 @@
-<h1>Listing Promotions</h1>
+<div class="page-header">
+  <%= link_to new_promotion_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Promotion
+  <% end %>
+  <h1>Listing promotions</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @promotions.each do |promotion| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', promotion %></td>
+            <th>Name</th>
+            <th>Description</th>
+            <th>External</th>
+            <th>Image url</th>
+            <th>Discount</th>
+            <th>Price from</th>
+            <th>Price to</th>
+            <th>Price billet</th>
+            <th>Url</th>
+            <th>Enabled</th>
+            <th>Affiliate</th>
+            <th>Begin at</th>
+            <th>End at</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @promotions) do |promotion| %>
+            <td><%= promotion.name %></td>
+            <td><%= promotion.description %></td>
+            <td><%= promotion.external_id %></td>
+            <td><%= promotion.image_url %></td>
+            <td><%= promotion.discount %></td>
+            <td><%= promotion.price_from %></td>
+            <td><%= promotion.price_to %></td>
+            <td><%= promotion.price_billet %></td>
+            <td><%= promotion.url %></td>
+            <td><%= promotion.enabled %></td>
+            <td><%= promotion.affiliate %></td>
+            <td><%= promotion.begin_at %></td>
+            <td><%= promotion.end_at %></td>
+            <td><%= link_to 'Show', promotion %></td>
         <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
         <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Promotion', new_promotion_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
