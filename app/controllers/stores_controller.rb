@@ -28,7 +28,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to @store, notice: 'Loja foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to @store, notice: 'Loja foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @store }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to stores_url, notice: 'Store was successfully destroyed.' }
+      format.html { redirect_to stores_url, notice: 'Loja foi removida com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.fetch(:store, {})
+      params.require(:store).permit(:name, :description, :twitter, :logo_url, :url)
     end
 end

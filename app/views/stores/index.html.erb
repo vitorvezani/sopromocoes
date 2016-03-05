@@ -1,25 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to new_store_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Store
+  <% end %>
+  <h1>Listing stores</h1>
+</div>
 
-<h1>Listing Stores</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stores.each do |store| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', store %></td>
+            <th>Store</th>
+            <th>Description</th>
+            <th>Twitter</th>
+            <th>Logo url</th>
+            <th>Url</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @stores) do |store| %>
+            <td><%= store.name %></td>
+            <td><%= store.description.truncate(35) %></td>
+            <td><%= store.twitter %></td>
+            <td><%= store.logo_url.truncate(27) %></td>
+            <td><%= store.url.truncate(27) %></td>
+            <td><%= link_to 'Show', store %></td>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Store', new_store_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

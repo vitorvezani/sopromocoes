@@ -18,7 +18,7 @@ class StoresControllerTest < ActionController::TestCase
 
   test "should create store" do
     assert_difference('Store.count') do
-      post :create, store: {  }
+      post :create, store: { description: @store.description, logo_url: @store.logo_url, store: @store.store, twitter: @store.twitter, url: @store.url }
     end
 
     assert_redirected_to store_path(assigns(:store))
@@ -35,7 +35,7 @@ class StoresControllerTest < ActionController::TestCase
   end
 
   test "should update store" do
-    patch :update, id: @store, store: {  }
+    patch :update, id: @store, store: { description: @store.description, logo_url: @store.logo_url, store: @store.store, twitter: @store.twitter, url: @store.url }
     assert_redirected_to store_path(assigns(:store))
   end
 

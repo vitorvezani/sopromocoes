@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to stores_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_store_path(@store), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show store</h1>
+</div>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<dl class="dl-horizontal">
+  <dt>Store:</dt>
+  <dd><%= @store.name %></dd>
+
+  <dt>Description:</dt>
+  <dd><%= @store.description %></dd>
+
+  <dt>Twitter:</dt>
+  <dd><%= @store.twitter %></dd>
+
+  <dt>Logo url:</dt>
+  <dd><%= @store.logo_url %></dd>
+
+  <dt>Url:</dt>
+  <dd><%= @store.url %></dd>
+
+</dl>
