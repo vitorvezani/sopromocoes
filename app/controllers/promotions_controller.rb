@@ -15,6 +15,9 @@ class PromotionsController < ApplicationController
         end
         render :json => @promotions, :callback => params[:jsonp]
       end
+      format.html do
+        @promotions = Promotion.all
+      end
     end
   end
 
