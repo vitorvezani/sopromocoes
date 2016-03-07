@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
@@ -19,7 +18,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# Roo implements read access for all common spreadsheet types.
+gem 'roo', '~> 2.3.2'
+# RSpec is a Behaviour-Driven Development tool for Ruby programmers
+gem 'rspec'
 #-- Rails Assets
 gem 'bundler', '>= 1.8.4'
 
