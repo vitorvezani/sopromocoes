@@ -40,16 +40,18 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vitor Vezani <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Minhas Promoções</a></li>
-                <li role="separator" class="divider"></li>
-                <!-- <li class="dropdown-header">Nav header</li> -->
-                <li><a href="#">Sair</a></li>
-              </ul>
-            </li>
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vitor Vezani <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Perfil</a></li>
+                  <li><a href="#">Minhas Promoções</a></li>
+                  <li role="separator" class="divider"></li>
+                  <!-- <li class="dropdown-header">Nav header</li> -->
+                  <li><a href="#">Sair</a></li>
+                </ul>
+              </li>
+            <% end %>
           </ul>
       </div>
     </div>

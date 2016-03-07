@@ -9,8 +9,8 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
   margin-bottom: 10px;
 }
 .form-signin .checkbox {
@@ -41,4 +41,19 @@ body {
 
 .form-signin input[type="checkbox"] {
   margin-left: 0px !important; 
+}
+
+
+/* forgot password */
+
+.form-forgot-password {
+  max-width: 380px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-forgot-password input[type="email"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
