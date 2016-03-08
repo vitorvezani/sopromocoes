@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   resources :promotions
   resources :stores
   resources :coupons
+  resources :users
   
   get 'home/index'
 
-  get 'home/about'
+  get 'home/about', as: :about
 
-  get 'home/contact'
+  get 'home/contact', as: :contact
 
   # Devise routes
   devise_for :users
