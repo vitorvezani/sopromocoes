@@ -1,0 +1,1 @@
+Rails.application.config.app_name = "Só Promoções"

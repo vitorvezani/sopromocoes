@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Só Promoções</title>
+  <title><%= Rails.application.config.app_name %></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Só Promoções", root_path, class: "navbar-brand" %>
+        <%= link_to Rails.application.config.app_name, root_path, class: "navbar-brand" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -40,7 +40,7 @@
         <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vitor Vezani <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Perfil", user_path(current_user) %></li>
                   <li><a href="#">Minhas Promoções</a></li>
@@ -67,10 +67,11 @@
     <% end %>
 
     <%= yield %>
+
   </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">© 2015 Company, Inc.</p>
+      <p class="text-muted">© 2016 <%= Rails.application.config.app_name %></p>
     </div>
   </footer>
 </body>
