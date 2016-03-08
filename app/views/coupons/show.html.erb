@@ -1,34 +1,12 @@
 <!-- http://bootsnipp.com/snippets/featured/css-coupons -->
-<script type="text/javascript">
+<div class="page-header">
+  <a class="btn btn-default" href="/coupons"><span class="glyphicon glyphicon-list-alt"></span>Voltar</a>
+  <h1>Coupons</h1>
+</div>
 
-    function PrintElem(elem)
-    {
-        Popup($(elem).html());
-    }
-
-    function Popup(data) 
-    {
-        var mywindow = window.open('', 'my div', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>my div</title>');
-        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(data);
-        mywindow.document.write('</body></html>');
-
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10
-
-        mywindow.print();
-        mywindow.close();
-
-        return true;
-    }
-
-</script>
-
-<div class="mydiv row" id=<%= @coupon.try(:store?).color %>
-  <div class="col-md-4">
-      <div class="panel panel-danger coupon">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-<%= @coupon.try(:store?).nil? ? "danger" : @coupon.try(:store?).color %> coupon">
         <div class="panel-heading" id="head">
           <div class="panel-title" id="title">
               <a href="#">Submarino</a>
@@ -40,7 +18,7 @@
           <div class="coupon-code">
               Code: <%= @coupon.code %>
               <span class="print">
-                  <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                  <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Cupom!</a>
               </span>
           </div>
           <div class="exp">Expires: <%= @coupon.end_at.to_s(:long) %></div>
