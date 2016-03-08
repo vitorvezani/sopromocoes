@@ -1,102 +1,55 @@
 <!-- http://bootsnipp.com/snippets/featured/css-coupons -->
-<div class="row" id="red">
-        <div class="col-md-4">
-            <div class="panel panel-danger coupon">
-              <div class="panel-heading" id="head">
-                <div class="panel-title" id="title">
-                    <i class="fa fa-github fa-2x"></i>
-                    <span class="hidden-xs"><%= @coupon.name %></span>
-                    <span class="visible-xs"><%= @coupon.name %></span>
-                </div>
-              </div>
-              <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
-                <div class="col-md-12 well well-sm">
-                    <div id="business-info">
-                        <ul>
-                            <li><span><i class="fa fa-phone"></i> (123) 456-789</span></li>
-                            <li><span><i class="fa fa-map-marker"></i> 345 S Main Street Bootsnippville, UT</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <ul class="items">
-                        <li>Add up to 5 quarts of motor oil (per specification)</li>
-                        <li>Complimentary multi-point inspection</li>
-                        <li>Drain and refill trnasmission fluid</li>
-                        <li>System inspection</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <div class="offer text-danger">
-                        <span class="usd"><sup>$</sup></span>
-                        <span class="number">39</span>
-                        <span class="cents"><sup>95</sup></span>
-                    </div>
-                </div>
-                <!--
-                <div class="col-md-12">
-                    <p class="disclosure">Using Genuine Oil Filter and 
-                    multigrade oil up to vehicle specification. Lube as 
-                    necessary. Ester Oil or Synthetic available at additional 
-                    cost. Excludes hazardous waste fee, tax and shop supplies, 
-                    where applicable. Offer not valid with previous charges or 
-                    with any other offers or specials. Customer must offer at 
-                    time of write-up. No cash value.</p>
-                </div>
-                -->
-              </div>
-              <div class="panel-footer">
-                <div class="coupon-code">
-                    Code: <%= @coupon.code %>
-                    <span class="print">
-                        <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
-                    </span>
-                </div>
-                <div class="exp">Expires: <%= @coupon.end_at %></div>
-                <div class="exp">Rules: <%= link_to "Regras", @coupon.rules_url %></div>
-              </div>
-            </div>
+<script type="text/javascript">
+
+    function PrintElem(elem)
+    {
+        Popup($(elem).html());
+    }
+
+    function Popup(data) 
+    {
+        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>my div</title>');
+        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+
+</script>
+
+<div class="mydiv row" id=<%= @coupon.try(:store?).color %>
+  <div class="col-md-4">
+      <div class="panel panel-danger coupon">
+        <div class="panel-heading" id="head">
+          <div class="panel-title" id="title">
+              <a href="#">Submarino</a>
+              <span class="hidden-xs"><%= @coupon.name %></span>
+              <span class="visible-xs"><%= @coupon.name %></span>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="coupon-code">
+              Code: <%= @coupon.code %>
+              <span class="print">
+                  <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+              </span>
+          </div>
+          <div class="exp">Expires: <%= @coupon.end_at.to_s(:long) %></div>
+          <div class="exp">Rules: <a href=<%= @coupon.rules_url %> >Regras</a></div>
+          <% if current_user.try(:admin?) %>
+            <%= link_to "Editar", edit_coupon_path(@coupon) %>
+            <%= link_to "Excluir", @coupon, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
       </div>
-    </div>
-
-<!--
-<div class="page-header">
-  <%= link_to coupons_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_coupon_path(@coupon), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show coupon</h1>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @coupon.name %></dd>
-
-  <dt>Code:</dt>
-  <dd><%= @coupon.code %></dd>
-
-  <dt>Url:</dt>
-  <dd><%= @coupon.url %></dd>
-
-  <dt>Begin at:</dt>
-  <dd><%= @coupon.begin_at %></dd>
-
-  <dt>End at:</dt>
-  <dd><%= @coupon.end_at %></dd>
-
-  <dt>Enabled:</dt>
-  <dd><%= @coupon.enabled %></dd>
-
-  <dt>Rules url:</dt>
-  <dd><%= @coupon.rules_url %></dd>
-
-  <dt>Affiliate:</dt>
-  <dd><%= @coupon.affiliate %></dd>
-
-</dl>
--->
