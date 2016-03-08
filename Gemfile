@@ -29,7 +29,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
-  gem 'rails-assets-fontawesome'
+  #gem 'rails-assets-fontawesome'
 end
 #-- Rails Assets
 
@@ -41,6 +41,9 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Fontawesome - https://github.com/bokmann/font-awesome-rails
+gem "font-awesome-rails"
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
