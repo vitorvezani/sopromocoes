@@ -44,6 +44,10 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to "Perfil", user_path(current_user) %></li>
                   <li><a href="#">Minhas Promoções</a></li>
+                  <% if current_user.admin? %>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "Importar Promoções", new_admin_promotion_path %></li>
+                  <% end %>
                   <li role="separator" class="divider"></li>
                   <!-- <li class="dropdown-header">Nav header</li> -->
                   <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
