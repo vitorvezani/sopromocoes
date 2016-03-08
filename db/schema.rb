@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308000315) do
+ActiveRecord::Schema.define(version: 20160308011226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,13 @@ ActiveRecord::Schema.define(version: 20160308000315) do
     t.text     "rules_url"
     t.string   "affiliate"
     t.integer  "user_id"
-    t.integer  "stores_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "store_id"
   end
+
+  add_index "coupons", ["store_id"], name: "index_coupons_on_store_id", using: :btree
+  add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
 
   create_table "promotions", force: :cascade do |t|
     t.string   "name",                        null: false
@@ -46,10 +49,13 @@ ActiveRecord::Schema.define(version: 20160308000315) do
     t.datetime "begin_at"
     t.datetime "end_at"
     t.integer  "user_id"
-    t.integer  "stores_id"
+    t.integer  "store_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
+
+  add_index "promotions", ["store_id"], name: "index_promotions_on_store_id", using: :btree
+  add_index "promotions", ["user_id"], name: "index_promotions_on_user_id", using: :btree
 
   create_table "stores", force: :cascade do |t|
     t.string   "name",        null: false
