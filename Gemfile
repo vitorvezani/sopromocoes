@@ -29,6 +29,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
+  gem 'rails-assets-fontawesome'
 end
 #-- Rails Assets
 
@@ -46,8 +47,10 @@ gem 'therubyracer', platforms: :ruby
 
 # Devise
 gem 'devise', '~> 3.5', '>= 3.5.3'
+
 # Cancan
 gem 'cancan', '~> 1.6', '>= 1.6.10'
+
 # Paperclip
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
 
