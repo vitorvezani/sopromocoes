@@ -1,0 +1,7 @@
+<h1>Upload de arquivo!</h1>
+
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'csv_file' %> </br>
+  <%= select_tag "affiliate", options_for_select([ "Lomadee", "Afiliados" ], "Afiliados") %> </br></br>
+  <div><%= submit_tag 'Enviar' %></div>
+<% end %>

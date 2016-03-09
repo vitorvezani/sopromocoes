@@ -27,7 +27,7 @@
             </div>
             <div class="exp">Expires: <%= coupon.end_at.to_s(:long) %></div>
             <div class="exp">Rules: <a href=<%= coupon.rules_url %> >Regras</a></div>
-            <% if current_user.admin? %>
+            <% if current_user.try(:admin?) %>
               <br>
               <%= link_to "Editar", edit_coupon_path(coupon) %> |
               <%= link_to "Excluir", coupon, method: :delete, data: { confirm: 'Are you sure?' } %>

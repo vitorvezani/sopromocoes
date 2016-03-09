@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Roo implements read access for all common spreadsheet types.
 gem 'roo', '~> 2.3.2'
+gem 'roo-xls'
 # RSpec is a Behaviour-Driven Development tool for Ruby programmers
 gem 'rspec'
 #-- Rails Assets

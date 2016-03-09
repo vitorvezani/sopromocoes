@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # config/routes.rb
   namespace :admin do
     resources :promotions
+    post 'promotions/upload'
   end
 
   

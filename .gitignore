@@ -12,3 +12,5 @@
 /log/*
 !/log/.keep
 /tmp
+*.byebug_history
+/public/uploads/*

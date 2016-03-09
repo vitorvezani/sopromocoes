@@ -31,15 +31,15 @@
 
     <tbody>
       <%= content_tag_for(:tr, @promotions) do |promotion| %>
-            <td><%= promotion.name %></td>
-            <td><%= promotion.description %></td>
+            <td><%= promotion.name.truncate(35) %></td>
+            <td><%= promotion.description.try(:truncate?) ? promotion.description.truncate(35) : nil %></td>
             <td><%= promotion.external_id %></td>
-            <td><%= promotion.image_url %></td>
+            <td><%= promotion.image_url.truncate(35) %></td>
             <td><%= promotion.discount %></td>
             <td><%= promotion.price_from %></td>
             <td><%= promotion.price_to %></td>
             <td><%= promotion.price_billet %></td>
-            <td><%= promotion.url %></td>
+            <td><%= promotion.url.truncate(35) %></td>
             <td><%= promotion.enabled %></td>
             <td><%= promotion.affiliate %></td>
             <td><%= promotion.begin_at %></td>
