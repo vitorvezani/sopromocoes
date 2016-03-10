@@ -1,7 +1,6 @@
-<h1>Upload de arquivo!</h1>
-
-<%= form_tag({action: :upload}, multipart: true) do %>
-  <%= file_field_tag 'csv_file' %> </br>
-  <%= select_tag "affiliate", options_for_select([ "Lomadee", "Afiliados" ], "Afiliados") %> </br></br>
-  <div><%= submit_tag 'Enviar' %></div>
+<%= form_tag({action: :upload}, { multipart: true, class: "form-signin form-forgot-password" }) do %>
+	<h1 class="form-signin-heading">Importar Promoções</h1>
+  <%= file_field_tag 'csv_file', class: "form-control" %> </br>
+  <%= select_tag "affiliate", options_for_select([ "Lomadee", "Afiliados" ], "Lomadee"), class: "form-control" %> </br></br>
+  <div><%= submit_tag 'Enviar', accept: 'xls', class: "btn btn-lg btn-primary btn-block" %></div>
 <% end %>
