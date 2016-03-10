@@ -1,36 +1,38 @@
 <div class="page-header">
   <%= link_to new_coupon_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Coupon
+    Novo Cupom
   <% end %>
-  <h1>Listing coupons</h1>
+  <h1>Todos os Cupons</h1>
 </div>
 
 <% @coupons.each_slice(3) do |coupons| %>
   <div class="row">
   <% coupons.each do |coupon| %>
-    <div class="col-md-4" id=<%= coupon.try(:store?).nil? ? "green" : coupon.store.color %>>
-        <div class="panel panel-danger coupon">
+    <div class="col-md-4">
+        <div class="panel panel-<%= random_bootstrap_color %> coupon">
           <div class="panel-heading" id="head">
             <div class="panel-title" id="title">
                 <a href="#">Submarino</a>
-                <span class="hidden-xs"><%= link_to coupon.name, coupon %></span>
-                <span class="visible-xs"><%= link_to coupon.name, coupon %></span>
+                <span class="hidden-xs"><%= link_to coupon.name.titleize, coupon %></span>
+                <span class="visible-xs"><%= link_to coupon.name.titleize, coupon %></span>
             </div>
           </div>
           <div class="panel-footer">
             <div class="coupon-code">
-                Code: <%= coupon.code %>
+                Código: <%= coupon.code %>
                 <span class="print">
-                    <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                    <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Coupon</a>
                 </span>
             </div>
-            <div class="exp">Expires: <%= coupon.end_at.to_s(:long) %></div>
-            <div class="exp">Rules: <a href=<%= coupon.rules_url %> >Regras</a></div>
+            <div class="exp">Expira em: <%= coupon.end_at.to_s(:long) %></div>
+            <% if coupon.rules_url? %>
+              <div class="exp">Regras: <a href=<%= coupon.rules_url %> >Regras</a></div>
+            <% end %>
             <% if current_user.try(:admin?) %>
               <br>
               <%= link_to "Editar", edit_coupon_path(coupon) %> |
-              <%= link_to "Excluir", coupon, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to "Excluir", coupon, method: :delete, data: { confirm: 'Você tem certeza?' } %>
             <% end %>
           </div>
         </div>
@@ -38,40 +40,7 @@
     <% end %>
   </div>
 <% end %>
-<!--
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-            <th>Name</th>
-            <th>Code</th>
-            <th>Url</th>
-            <th>Begin at</th>
-            <th>End at</th>
-            <th>Enabled</th>
-            <th>Rules url</th>
-            <th>Affiliate</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <%= content_tag_for(:tr, @coupons) do |coupon| %>
-            <td><%= coupon.name %></td>
-            <td><%= coupon.code %></td>
-            <td><%= coupon.url %></td>
-            <td><%= coupon.begin_at %></td>
-            <td><%= coupon.end_at %></td>
-            <td><%= coupon.enabled %></td>
-            <td><%= coupon.rules_url %></td>
-            <td><%= coupon.affiliate %></td>
-            <td><%= link_to 'Show', coupon %></td>
-        <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
-        <td><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tbody>
-  </table>
+<div class="col-md-9 col-md-offset-4">
+  <%= will_paginate @coupons, renderer: BootstrapPagination::Rails %>
 </div>
--->

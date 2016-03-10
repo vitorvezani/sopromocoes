@@ -4,7 +4,7 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.json
   def index
-    @coupons = Coupon.all
+    @coupons = Coupon.paginate(:page => params[:page], :per_page => 21 )
   end
 
   # GET /coupons/1

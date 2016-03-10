@@ -26,13 +26,16 @@ gem 'rspec'
 #-- Rails Assets
 gem 'bundler', '>= 1.8.4'
 
+#-- Rails Assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
-  #gem 'rails-assets-fontawesome'
 end
-#-- Rails Assets
+
+# Integrates the Twitter Bootstrap pagination component with will_paginate
+# https://github.com/bootstrap-ruby/will_paginate-bootstrap
+gem 'will_paginate-bootstrap'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -6,18 +6,24 @@ class Admin::PromotionsController < AdminController
 
   # POST admin/promotions/upload
   def upload
-    cvs_file = params[:csv_file]
+    xls_file = params[:xls_file]
     affiliate = params[:affiliate].downcase
 
-    path = Rails.root.join('public', 'uploads', cvs_file.original_filename)
+    file_path = Rails.root.join('public', 'uploads', xls_file.original_filename)
 
-    File.open(path, 'wb') do |file|
-      file.write(cvs_file.read)
+    File.open(file_path, 'wb') do |file|
+      file.write(xls_file.read)
     end
 
-    cvs_service = CVSFileReaderService.new(path, affiliate)
-    cvs_service.read!
+    xls_service = XlsFileReaderService.new(file_path, affiliate)
+    xls_service.read!
 
-		File.delete(path)
+		File.delete(file_path)
+
+    respond_to do |format|
+      format.html { redirect_to new_admin_promotion_path, notice: xls_file.original_filename + ' lido com sucesso!' }
+      format.json { head :no_content }
+    end
+
   end
 end

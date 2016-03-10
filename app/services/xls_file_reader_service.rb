@@ -1,7 +1,7 @@
 require 'spreadsheet'
 require 'roo'
 
-class CVSFileReaderService
+class XlsFileReaderService
 
 	def initialize(path, affiliate)
 		@path = path
@@ -66,15 +66,19 @@ class CVSFileReaderService
 					#<Coupon id: nil, name: nil, code: nil, url: nil, begin_at: nil, end_at: nil, enabled: true, rules_url: nil, 
 					# affiliate: nil, user_id: nil, created_at: nil, updated_at: nil, store_id: nil>
 
-		   		coupon = Coupon.new
-		   		#coupon.store_id = row[0]
-		   		coupon.name = row[1]
-		   		coupon.code = row[2]
-		   		coupon.url = row[3]
-		   		coupon.end_at = row[4]
-		   		coupon.affiliate = @affiliate
+					begin
+			   		coupon = Coupon.new
+			   		#coupon.store_id = row[0]
+			   		coupon.name = row[1]
+			   		coupon.code = row[2]
+			   		coupon.url = row[3]
+			   		coupon.end_at = row[4]
+			   		coupon.affiliate = @affiliate
 
-		   		coupon.save!
+			   		coupon.save!
+					rescue Exception => ex
+						Rails.logger.info "Cupon já existente: " + ex.to_s
+			   	end
 				end
 
 			else
