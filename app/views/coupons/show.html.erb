@@ -1,33 +1,11 @@
 <!-- http://bootsnipp.com/snippets/featured/css-coupons -->
 <div class="page-header">
   <a class="btn btn-default" href="/coupons"><span class="glyphicon glyphicon-list-alt"></span> Voltar</a>
-  <h1>Coupons</h1>
+  <h1><%= @coupon.name.titleize %></h1>
 </div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-<%= @coupon.try(:store?).nil? ? "danger" : @coupon.try(:store?).color %> coupon">
-        <div class="panel-heading" id="head">
-          <div class="panel-title" id="title">
-              <a href="#">Submarino</a>
-              <span class="hidden-xs"><%= @coupon.name %></span>
-              <span class="visible-xs"><%= @coupon.name %></span>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="coupon-code">
-              Code: <%= @coupon.code %>
-              <span class="print">
-                  <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Cupom!</a>
-              </span>
-          </div>
-          <div class="exp">Expires: <%= @coupon.end_at.to_s(:long) %></div>
-          <div class="exp">Rules: <a href=<%= @coupon.rules_url %> >Regras</a></div>
-          <% if current_user.try(:admin?) %>
-            <%= link_to "Editar", edit_coupon_path(@coupon) %>
-            <%= link_to "Excluir", @coupon, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-      </div>
+    <%= render partial: "coupons/shared/coupon", locals: {coupon: @coupon} %>
   </div>
 </div>

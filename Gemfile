@@ -26,6 +26,9 @@ gem 'rspec'
 #-- Rails Assets
 gem 'bundler', '>= 1.8.4'
 
+# Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff http://rails-i18n.org
+gem 'rails-i18n', '~> 4.0.0'
+
 #-- Rails Assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'

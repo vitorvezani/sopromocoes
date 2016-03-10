@@ -1,6 +1,7 @@
 myApp = angular.module('myApp',['infinite-scroll']);
 
 myApp.controller('PromotionsController', function($scope, SoPromocoes) {
+  console.log("tesste");
   $scope.soPromocoes = new SoPromocoes();
 });
 
@@ -16,7 +17,7 @@ myApp.factory('SoPromocoes', function($http) {
     if (this.busy) return;
     this.busy = true;
 
-    var url = "http://localhost:3100/promotions.json?last=" + this.last;
+    var url = "http://localhost:3000/promotions.json?last=" + this.last;
     $http.get(url).success(function(data) {
       var items = data;
       for (var i = 0; i < items.length; i++) {
