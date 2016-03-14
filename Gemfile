@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Ruby Version
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
@@ -25,9 +27,10 @@ gem 'roo-xls'
 gem 'rspec'
 #-- Rails Assets
 gem 'bundler', '>= 1.8.4'
-
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff http://rails-i18n.org
 gem 'rails-i18n', '~> 4.0.0'
+# https://devcenter.heroku.com/articles/rails-integration-gems
+gem 'rails_12factor'
 
 #-- Rails Assets
 source 'https://rails-assets.org' do
