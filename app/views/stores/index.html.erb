@@ -24,10 +24,10 @@
     <tbody>
       <%= content_tag_for(:tr, @stores) do |store| %>
             <td><%= store.name %></td>
-            <td><%= store.description.truncate(35) %></td>
+            <td><%= store.description.try(:truncate?) ? store.description.truncate(35) : store.description %></td>
             <td><%= store.twitter %></td>
-            <td><%= store.logo_url.truncate(27) %></td>
-            <td><%= store.url.truncate(27) %></td>
+            <td><%= store.logo_url.try(:truncate?) ? store.logo_url.truncate(27) : store.logo_url %></td>
+            <td><%= store.url.try(:truncate?) ? store.url.truncate(27) : store.url %></td>
             <td><%= link_to 'Show', store %></td>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
