@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: sopromocoes_production
-  username: sopromocoes
-  password: <%= ENV['SOPROMOCOES_DATABASE_PASSWORD'] %>
+  database: de0ovkclbt4276
+  username: kyrjzsyohlpocc
+  password: WFsS37B6W6oOM_dC3rPHCe9fqV
+  # <%= ENV['SOPROMOCOES_DATABASE_PASSWORD'] %>
