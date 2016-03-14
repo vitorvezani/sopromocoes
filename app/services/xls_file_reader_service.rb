@@ -48,7 +48,7 @@ class XlsFileReaderService
 		   		promotion.external_id = row[0]
 		   		promotion.name = row[1]
 		   		promotion.image_url = row[2]
-		   		#promotion.store = row[3]
+		   		promotion.store = find_or_create_store(row, 3)
 		   		promotion.discount = row[4]
 		   		promotion.price_from = row[5]
 		   		promotion.price_to = row[6]
@@ -68,7 +68,7 @@ class XlsFileReaderService
 
 					begin
 			   		coupon = Coupon.new
-			   		#coupon.store_id = row[0]
+			   		coupon.store = find_or_create_store(row, 0)
 			   		coupon.name = row[1]
 			   		coupon.code = row[2]
 			   		coupon.url = row[3]
@@ -89,5 +89,19 @@ class XlsFileReaderService
 	  	raise 'Afiliado #{@affiliate} não suportado!'
 	  end
 	end
-	
+
+	private
+
+		def find_or_create_store(row, store_index)
+
+			store_name = row[store_index]
+			store = Store.find_by_name(store_name)
+
+			return store if !store.nil?
+
+			store = Store.new
+			store.name = store_name
+			store.save!
+			return store 
+		end
 end

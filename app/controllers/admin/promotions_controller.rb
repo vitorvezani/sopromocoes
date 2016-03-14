@@ -26,4 +26,8 @@ class Admin::PromotionsController < AdminController
     end
 
   end
+
+  def index
+    @promotions = Promotion.all
+  end
 end

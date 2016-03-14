@@ -16,7 +16,7 @@ class PromotionsController < ApplicationController
         render :json => @promotions, :callback => params[:jsonp]
       end
       format.html do
-        @promotions = Promotion.all
+        @promotions = Promotion.paginate(:page => params[:page], :per_page => 21 )
       end
     end
   end

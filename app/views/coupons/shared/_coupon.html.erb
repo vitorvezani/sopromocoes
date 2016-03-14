@@ -1,7 +1,7 @@
 <div class="panel panel-<%= random_bootstrap_color %> coupon">
   <div class="panel-heading" id="head">
     <div class="panel-title" id="title">
-        <a href="#">Submarino</a>
+        <%= link_to coupon.store.name.titleize, coupon.store %>
         <span class="hidden-xs"><%= link_to coupon.name.titleize, coupon %></span>
         <span class="visible-xs"><%= link_to coupon.name.titleize, coupon %></span>
     </div>

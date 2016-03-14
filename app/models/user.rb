@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :promotions, dependent: :destroy
-
+  has_many :coupons, dependent: :destroy
 
   # Se tiver nome, retorna o nome, se não o email.
 	def full_name()

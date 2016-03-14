@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   resources :promotions
   resources :stores
   resources :coupons
-  
-  get 'home/index'
 
   get 'home/about', as: :about
 
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
 
   
   # You can have the root of your site routed with "root"
-  root to: "home#index"
+  root to: "promotions#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

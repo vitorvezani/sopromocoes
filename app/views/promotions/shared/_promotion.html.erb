@@ -1,0 +1,37 @@
+<div class="panel panel-<%= random_bootstrap_color %> promotion">
+  <div class="panel-heading" id="head">
+    <div class="panel-title" id="title">
+        <%= link_to promotion.store.name.titleize, promotion.store %>
+        <span class="hidden-xs"><%= link_to promotion.name.titleize, promotion %></span>
+        <span class="visible-xs"><%= link_to promotion.name.titleize, promotion %></span>
+    </div>
+  </div>
+  <div class="panel-body">
+  <img src=<%= promotion.image_url %> class="promotion-img img-rounded">
+      <ul class="items">
+          <li>Add up to 5 quarts of motor oil (per specification)</li>
+          <li>Complimentary multi-point inspection</li>
+          <li>Drain and refill trnasmission fluid</li>
+          <li>System inspection</li>
+      </ul>
+  </div>
+  <div class="panel-footer">
+    <div class="promotion-code">
+        <p>Desconto: <%= promotion.discount %></p>
+        <p>Preco de: <%= promotion.price_from %></p>
+        <p>Preco: <%= promotion.price_to %></p>
+        <span class="print">
+            <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Promocao</a>
+        </span>
+    </div>
+    <% if promotion.end_at? %>
+      <div class="exp">Expira em: <%= promotion.end_at.to_s(:long) %></div>
+    <% end %>
+    <div class="exp">Link: <a href=<%= promotion.url %> >Link</a></div>
+    <% if current_user.try(:admin?) %>
+      <br>
+      <%= link_to "Editar", edit_promotion_path(promotion) %> |
+      <%= link_to "Excluir", promotion, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+    <% end %>
+  </div>
+</div>
