@@ -3,9 +3,12 @@ require 'roo'
 
 class XlsFileReaderService
 
-	def initialize(path, affiliate)
-		@path = path
+		attr_reader :itens_read
+
+	def initialize(file, affiliate)
+		@file = file
 		@affiliate = affiliate
+		@itens_read = 0;
 	end
 	
 	def read!()
@@ -14,51 +17,46 @@ class XlsFileReaderService
 
 	  	# TODO
 
-	  	csv = Roo::CSV.new(@path, :quote_char => "|")
+	  	csv = Roo::CSV.new(@file.tempfile, :quote_char => "|") # arquivo na memoria
 
 			for i in 2..csv.count
 
 				row = csv.row(i)
 
-	   		promotion = Promotion.new
-	   		promotion.external_id = row[0]
-	   		promotion.name = row[1]
-	   		promotion.image_url = row[2]
-	   		#promotion.store = row[3]
-	   		promotion.discount = row[4]
-	   		promotion.price_from = row[5]
-	   		promotion.price_to = row[6]
-	   		promotion.url = row[7]
-	   		promotion.affiliate = @affiliate
-
-	   		promotion.save!
 			end
 
 	  elsif @affiliate == "lomadee"
 
-			csv = Roo::CSV.new(@path, csv_options: {col_sep: "\t", encoding: "Windows-1252"})
+			csv = Roo::CSV.new(@file.tempfile, csv_options: {col_sep: "\t", encoding: "Windows-1254"}) # arquivo na memoria	
 
-			if csv.filename.to_s.include? "ofertas" then
+			if @file.original_filename.include? "ofertas" then
 
 				for i in 2..csv.count
 
 					row = csv.row(i)
 
-		   		promotion = Promotion.new
-		   		promotion.external_id = row[0]
-		   		promotion.name = row[1]
-		   		promotion.image_url = row[2]
-		   		promotion.store = find_or_create_store(row, 3)
-		   		promotion.discount = row[4]
-		   		promotion.price_from = row[5]
-		   		promotion.price_to = row[6]
-		   		promotion.url = row[7]
-		   		promotion.affiliate = @affiliate
+					begin
+			   		promotion = Promotion.new
+			   		promotion.external_id = row[0]
+			   		promotion.name = row[1].encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+			   		promotion.image_url = row[2]
+			   		promotion.store = find_or_create_store(row, 3)
+			   		promotion.discount = row[4]
+			   		promotion.price_from = row[5]
+			   		promotion.price_to = row[6]
+			   		promotion.url = row[7]
+			   		promotion.affiliate = @affiliate
 
-		   		promotion.save!
+			   		promotion.save!
+
+			   		@itens_read = @itens_read + 1
+
+					rescue Exception => ex
+						Rails.logger.info "Promocao já existente: " + ex.to_s
+			   	end
 				end
 
-			elsif csv.filename.to_s.include? "cupons" then
+			elsif @file.original_filename.include? "cupons" then
 
 				for i in 2..csv.count
 
@@ -69,24 +67,27 @@ class XlsFileReaderService
 					begin
 			   		coupon = Coupon.new
 			   		coupon.store = find_or_create_store(row, 0)
-			   		coupon.name = row[1]
+			   		coupon.name = row[1].encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
 			   		coupon.code = row[2]
 			   		coupon.url = row[3]
 			   		coupon.end_at = row[4]
 			   		coupon.affiliate = @affiliate
 
 			   		coupon.save!
+
+			   		@itens_read = @itens_read + 1
+
 					rescue Exception => ex
 						Rails.logger.info "Cupon já existente: " + ex.to_s
 			   	end
 				end
 
 			else
-	  		raise 'Nome de arquivo #{@csv.filename} não suportado para afiliado #{@affiliate}!'
+	  		raise Exception, "Nome de arquivo #{@file.original_filename} não suportado para afiliado #{@affiliate}!"
 			end
 
 	  else
-	  	raise 'Afiliado #{@affiliate} não suportado!'
+	  	raise Exception, "Afiliado #{@affiliate} não suportado!"
 	  end
 	end
 
@@ -94,7 +95,7 @@ class XlsFileReaderService
 
 		def find_or_create_store(row, store_index)
 
-			store_name = row[store_index]
+			store_name = row[store_index].encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
 			store = Store.find_by_name(store_name)
 
 			return store if !store.nil?
