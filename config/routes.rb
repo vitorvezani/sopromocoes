@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :promotions
     post 'promotions/upload'
+    
+    resources :stores
+    resources :coupons
   end
 
   
