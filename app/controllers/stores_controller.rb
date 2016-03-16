@@ -57,7 +57,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to stores_url, notice: 'Loja foi removida com sucesso.' }
+      format.html { redirect_to stores_url, notice: 'Loja foi excluida com sucesso.' }
       format.json { head :no_content }
     end
   end

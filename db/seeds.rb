@@ -10,22 +10,29 @@ require 'faker'
 
 case Rails.env
 when "development"
-	for i in 1..2000
-   	promo = Promotion.new();
-   	promo.name = Faker::Commerce.product_name;
-   	promo.description = Faker::Commerce.department(2, true) #=> "Books & Tools"
-		promo.price_from = Faker::Commerce.price
-		promo.price_to = Faker::Commerce.price
-		promo.price_billet = Faker::Commerce.price
-		promo.percent_discount = Faker::Number.between(1, 100) #=> 7
-		promo.init_at = Faker::Time.between(DateTime.now - 1, DateTime.now) #=> "2014-09-18 12:30:59 -0700"
-		promo.end_at = Faker::Time.between(DateTime.now - 1, DateTime.now) #=> "2014-09-18 12:30:59 -0700"
-		promo.created_at = Faker::Time.between(DateTime.now - 1, DateTime.now) #=> "2014-09-18 12:30:59 -0700"
-		promo.updated_at = Faker::Time.between(DateTime.now - 1, DateTime.now) #=> "2014-09-18 12:30:59 -0700"
-		promo.img_link = Faker::Placeholdit.image("50x50", 'jpg') #=> "http://placehold.it/50x50.jpg/000"
-		promo.link = Faker::Internet.url
+	user = User.new
 
-		promo.save!
-	end
+	user.email = "vitor.vezani@gmail.com"
+	user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
+	#user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
+	user.reset_password_token = nil
+	user.reset_password_sent_at = nil
+	user.remember_created_at = "2016-03-14 02:02:17.320308"
+	user.sign_in_count = 0
+	user.current_sign_in_at = "2016-03-14 02:02:17.335391"
+	user.last_sign_in_at = "2016-03-10 22:28:53.280797"
+	user.current_sign_in_ip = "127.0.0.1"
+	user.last_sign_in_ip = "127.0.0.1"
+	user.created_at = "2016-03-10 22:28:27.392224"
+	user.updated_at = "2016-03-14 02:02:17.336226"
+	user.first_name = "Vitor"
+	user.last_name = "Vezani"
+	user.confirmation_token = "99FsQp6TyjvUB4oW1HsB"
+	user.confirmed_at = "2016-03-10 22:28:46.637631"
+	user.confirmation_sent_at = "2016-03-10 22:28:27.528375"
+	user.unconfirmed_email = nil
+	user.admin = true
+
+	user.save(validate: false)
 #when "production"
 end

@@ -1,6 +1,6 @@
 /* Fixed Top */
 body {
-  min-height: 2000px;
+  min-height: 600px;
 }
 
 /* Sticky footer styles
@@ -16,6 +16,10 @@ body {
   margin-bottom: 60px;
 }
 
+.container.yield {
+  padding-bottom: 2em;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -27,20 +31,6 @@ body {
 
 /* Custom page CSS
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 15px 15px 0;
-}
 .container .text-muted {
   margin: 20px 0;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
 }

@@ -1,9 +1,9 @@
 <div class="page-header">
   <%= link_to new_promotion_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Promotion
+    Nova Promoção
   <% end %>
-  <h1>Listing promotions</h1>
+  <h1>Listando as promoções</h1>
 </div>
 
 <div class="table-responsive">
@@ -46,7 +46,7 @@
             <td><%= promotion.end_at %></td>
             <td><%= link_to 'Show', promotion %></td>
         <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
-        <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       <% end %>
     </tbody>
   </table>
