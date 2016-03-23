@@ -70,6 +70,9 @@ gem 'cancan', '~> 1.6', '>= 1.6.10'
 # Paperclip
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
 
+# Acts As Votable is a Ruby Gem specifically written for Rails/ActiveRecord models.
+gem 'acts_as_votable', '~> 0.10.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

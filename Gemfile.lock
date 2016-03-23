@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     arel (6.0.3)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
@@ -246,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable (~> 0.10.0)
   awesome_print (~> 1.6, >= 1.6.1)
   better_errors (~> 2.1, >= 2.1.1)
   binding_of_caller (~> 0.7.2)
