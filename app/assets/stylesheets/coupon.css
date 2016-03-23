@@ -1,8 +1,8 @@
 .coupon {
     border: 3px dashed #bcbcbc;
     border-radius: 10px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
-    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
 }
 
@@ -71,7 +71,7 @@ sup {
     text-align: center;
 }
 
-#business-info ul li { 
+#business-info ul li {
     display: inline;
     text-align: center;
 }
@@ -99,6 +99,7 @@ sup {
 
 .exp {
     color: #f34235;
+    padding-top: 0.5em;
 }
 
 .print {

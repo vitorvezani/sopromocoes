@@ -1,53 +1,11 @@
+<!-- http://bootsnipp.com/snippets/featured/css-promotions -->
 <div class="page-header">
-  <%= link_to promotions_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_promotion_path(@promotion), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show promotion</h1>
+  <a class="btn btn-default" href="/promotions"><span class="glyphicon glyphicon-list-alt"></span> Voltar</a>
+  <h1><%= @promotion.name.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @promotion.name %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @promotion.description %></dd>
-
-  <dt>External:</dt>
-  <dd><%= @promotion.external_id %></dd>
-
-  <dt>Image url:</dt>
-  <dd><%= @promotion.image_url %></dd>
-
-  <dt>Discount:</dt>
-  <dd><%= @promotion.discount %></dd>
-
-  <dt>Price from:</dt>
-  <dd><%= @promotion.price_from %></dd>
-
-  <dt>Price to:</dt>
-  <dd><%= @promotion.price_to %></dd>
-
-  <dt>Price billet:</dt>
-  <dd><%= @promotion.price_billet %></dd>
-
-  <dt>Url:</dt>
-  <dd><%= @promotion.url %></dd>
-
-  <dt>Enabled:</dt>
-  <dd><%= @promotion.enabled %></dd>
-
-  <dt>Affiliate:</dt>
-  <dd><%= @promotion.affiliate %></dd>
-
-  <dt>Begin at:</dt>
-  <dd><%= @promotion.begin_at %></dd>
-
-  <dt>End at:</dt>
-  <dd><%= @promotion.end_at %></dd>
-
-</dl>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render partial: "promotions/shared/promotion", locals: {promotion: @promotion} %>
+  </div>
+</div>

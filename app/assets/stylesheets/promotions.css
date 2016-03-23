@@ -1,8 +1,8 @@
 .promotion {
     border: 3px dashed #bcbcbc;
     border-radius: 10px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
-    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
 }
 
@@ -45,6 +45,10 @@
     /* width: 100%; */
     margin-bottom: 15px;
     padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 .items {
@@ -71,7 +75,7 @@ sup {
     text-align: center;
 }
 
-#business-info ul li { 
+#business-info ul li {
     display: inline;
     text-align: center;
 }
