@@ -15,11 +15,7 @@
           <h5><b>Desconto de <span class="text-danger"><%= number_to_percentage(promotion.discount, precision: 0) %></span></b></h5>
         <% end %>
         <h5><b>De <%= number_to_currency(promotion.price_from) %> por <%= number_to_currency(promotion.price_to) %></b></h5>
-        <!--
-        <span class="print">
-            <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Promoção</a>
-        </span>
-        -->
+        <p>Enviado por <%= link_to promotion.user.full_name.titleize, promotion.user %></p>
     </div>
     <% if promotion.end_at? %>
       <div class="exp">Expira em: <%= promotion.end_at.to_s(:long) %></div>

@@ -5,12 +5,13 @@ class XlsFileReaderService
 
 		attr_reader :itens_read
 
-	def initialize(file, affiliate)
+	def initialize(file, affiliate, user)
 		@file = file
 		@affiliate = affiliate
 		@itens_read = 0;
+		@user = user
 	end
-	
+
 	def read!()
 
 	  if @affiliate == "afiliados"
@@ -27,7 +28,7 @@ class XlsFileReaderService
 
 	  elsif @affiliate == "lomadee"
 
-			csv = Roo::CSV.new(@file.tempfile, csv_options: {col_sep: "\t", encoding: "Windows-1254"}) # arquivo na memoria	
+			csv = Roo::CSV.new(@file.tempfile, csv_options: {col_sep: "\t", encoding: "Windows-1254"}) # arquivo na memoria
 
 			if @file.original_filename.include? "ofertas" then
 
@@ -46,6 +47,7 @@ class XlsFileReaderService
 			   		promotion.price_to = row[6]
 			   		promotion.url = row[7]
 			   		promotion.affiliate = @affiliate
+			   		promotion.user = @user
 
 			   		promotion.save!
 
@@ -61,7 +63,7 @@ class XlsFileReaderService
 				for i in 2..csv.count
 
 					row = csv.row(i)
-					#<Coupon id: nil, name: nil, code: nil, url: nil, begin_at: nil, end_at: nil, enabled: true, rules_url: nil, 
+					#<Coupon id: nil, name: nil, code: nil, url: nil, begin_at: nil, end_at: nil, enabled: true, rules_url: nil,
 					# affiliate: nil, user_id: nil, created_at: nil, updated_at: nil, store_id: nil>
 
 					begin
@@ -72,6 +74,7 @@ class XlsFileReaderService
 			   		coupon.url = row[3]
 			   		coupon.end_at = row[4]
 			   		coupon.affiliate = @affiliate
+						coupon.user = @user
 
 			   		coupon.save!
 
@@ -103,6 +106,6 @@ class XlsFileReaderService
 			store = Store.new
 			store.name = store_name
 			store.save!
-			return store 
+			return store
 		end
 end
