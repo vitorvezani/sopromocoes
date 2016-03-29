@@ -54,7 +54,7 @@ class XlsFileReaderService
 			   		@itens_read = @itens_read + 1
 
 					rescue Exception => ex
-						Rails.logger.info "Promoção já existente: " + ex.to_s
+						Rails.logger.info "Oferta já existente: " + ex.to_s
 			   	end
 				end
 
