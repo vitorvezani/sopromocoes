@@ -9,14 +9,14 @@ class PromotionsController < ApplicationController
     respond_to do |format|
       format.json do
         if params[:last]
-          @promotions = Promotion.offset(params[:last]).limit(10).order(created_at: :desc)
+          @promotions = Promotion.includes(:store, :user).offset(params[:last]).limit(10).order(created_at: :desc)
         else
-          @promotions = Promotion.limit(10)
+          @promotions = Promotion.includes(:store, :user).limit(10)
         end
         render :json => @promotions, :callback => params[:jsonp]
       end
       format.html do
-        @promotions = Promotion.paginate(:page => params[:page], :per_page => 21 )
+        @promotions = Promotion.includes(:store, :user).paginate(:page => params[:page], :per_page => 21 )
       end
     end
   end

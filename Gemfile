@@ -94,8 +94,6 @@ group :development do
   gem 'pry', '~> 0.10.3'
   # Rack-mini-profiler
   gem 'rack-mini-profiler', '~> 0.9.8'
-  # bullet
-  gem 'bullet', '~> 4.14', '>= 4.14.10'
 	# awesome_print
 	gem 'awesome_print', '~> 1.6', '>= 1.6.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -106,6 +104,9 @@ group :development do
   #  designed to kickstart development of webapps and sites.
   #  https://github.com/decioferreira/bootstrap-generators
   gem 'bootstrap-generators', '~> 3.3.4'
+
+  # Help to kill N+1 queries and unused eager loading - https://github.com/flyerhzm/bullet
+  gem "bullet", '~> 4.14', '>= 4.14.10'
 end
 
 group :test do
