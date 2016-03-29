@@ -5,7 +5,22 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
+    respond_to do |format|
+
+      format.json do
+        if params[:last]
+          @stores = Store.offset(params[:last]).limit(10).order(created_at: :desc)
+        else
+          @stores = Store.limit(10)
+        end
+        render :json => @stores, :callback => params[:jsonp]
+      end
+
+      format.html do
+        @stores = Store.paginate(:page => params[:page], :per_page => 21 )
+      end
+
+    end
   end
 
   # GET /stores/1

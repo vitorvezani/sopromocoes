@@ -1,0 +1,14 @@
+<div class="panel panel-<%= random_bootstrap_color %> store">
+  <div class="panel-heading" id="head">
+    <div class="panel-title" id="title">
+        <%= link_to store.name.titleize, store %><br>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <% if current_user.try(:admin?) %>
+      <br>
+      <%= link_to "Editar", edit_store_path(store) %> |
+      <%= link_to "Excluir", store, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+    <% end %>
+  </div>
+</div>
