@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require angular
 //= require ngInfiniteScroll
+//= require sweetalert
 //= require_tree .

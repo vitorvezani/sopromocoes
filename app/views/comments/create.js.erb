@@ -1,3 +1,7 @@
-$("<%= escape_javascript render(partial: 'shared/comment', locals: { comment: @comment }) %>").prependTo(".comment-list");
-$("#title").val('');
-$("#message").val('');
+<% if @error.present? %>
+  sweetAlert('Oops...', "<%= @error %>", 'error')
+<% else %>
+  $("<%= escape_javascript render(partial: 'shared/comment', locals: { comment: @comment }) %>").prependTo(".comment-list");
+  $("#title").val('');
+  $("#message").val('');
+<% end %>

@@ -37,6 +37,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
+  gem 'rails-assets-sweetalert'
 end
 
 # Integrates the Twitter Bootstrap pagination component with will_paginate
