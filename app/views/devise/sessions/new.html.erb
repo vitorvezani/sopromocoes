@@ -1,5 +1,8 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
   <h2 class="form-signin-heading">Please sign in</h2>
+
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
   <%= f.label :email, class: "sr-only" %>
   <%= f.email_field :email, class: "form-control", placeholder: "Email Adress", autofocus: true, required: true %>
 

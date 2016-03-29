@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'home/contact', as: :contact
 
   # Devise routes
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,12 +19,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :promotions
     post 'promotions/upload'
-    
+
     resources :stores
     resources :coupons
   end
 
-  
   # You can have the root of your site routed with "root"
   root to: "promotions#index"
 

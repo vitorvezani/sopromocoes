@@ -63,6 +63,8 @@ gem 'therubyracer', platforms: :ruby
 
 # Devise
 gem 'devise', '~> 3.5', '>= 3.5.3'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Cancan
 gem 'cancan', '~> 1.6', '>= 1.6.10'

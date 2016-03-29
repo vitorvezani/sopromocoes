@@ -9,7 +9,7 @@
   <div class="panel-footer">
     <div class="coupon-code">
         <h5>Código: '<b><%= coupon.code %></b>'</h5>
-        <p>Enviado por <%= link_to coupon.user.full_name.titleize, coupon.user %></p>
+        <p>Enviado por <%= link_to coupon.user.name.titleize, coupon.user %></p>
         <!--
         <span class="print">
             <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Coupon</a>

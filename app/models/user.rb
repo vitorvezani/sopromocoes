@@ -5,19 +5,18 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :promotions, dependent: :destroy
   has_many :coupons, dependent: :destroy
 
-  # Se tiver nome, retorna o nome, se não o email.
-	def full_name()
-		if self.first_name? and self.last_name? then
-			self.first_name + " " + self.last_name
-		elsif self.first_name? then
-			self.first_name
-		else
-			self.email
-		end
-	end
+def self.from_omniauth_facebook(auth)
+  where(provider_facebook: auth.provider, uid_facebook: auth.uid).first_or_create do |user|
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0,20] if user.password.nil?
+    user.name = auth.info.name
+    user.image_url = auth.info.image
+  end
+end
+
 end
