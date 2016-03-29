@@ -16,6 +16,10 @@ body {
   margin-bottom: 60px;
 }
 
+.btn-social {
+  color: #fff !important;
+}
+
 .container.yield {
   padding-bottom: 2em;
 }
