@@ -1,11 +1,11 @@
 <!-- http://bootsnipp.com/snippets/featured/css-promotions -->
 <div class="page-header">
-  <a class="btn btn-default" href="/promotions"><span class="glyphicon glyphicon-list-alt"></span> Voltar</a>
   <h1><%= @promotion.name.titleize %></h1>
 </div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= render partial: "promotions/shared/promotion", locals: {promotion: @promotion} %>
+    <%= render partial: "promotions/shared/promotion", locals: { promotion: @promotion } %>
   </div>
+  <%= render partial: "shared/comments", locals: { comments: @comments, new_comment: @new_comment } %>
 </div>

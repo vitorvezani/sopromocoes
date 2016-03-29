@@ -10,6 +10,8 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
+    @new_comment = Comment.new(commentable: @coupon, user: current_user)
+    @comments = @coupon.comments.includes(:user).recent.limit(10).all
   end
 
   # GET /coupons/new

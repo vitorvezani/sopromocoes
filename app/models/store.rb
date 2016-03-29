@@ -1,6 +1,9 @@
 class Store < ActiveRecord::Base
 
-	has_many :promotions
+  acts_as_commentable
+  acts_as_votable
+
+  has_many :promotions
 	has_many :coupons
 
 end

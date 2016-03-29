@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+          <h2 class="page-header">Comentários</h2>
+          <div class="col-md-8 col-md-offset-2">
+            <% if user_signed_in? %>
+              <div class="form-area">
+                <%= form_for(new_comment, remote: true) do |f| %>
+                  <br style="clear:both">
+                  <%= f.hidden_field :commentable_id %>
+                  <%= f.hidden_field :commentable_type %>
+                  <%= f.hidden_field :user_id %>
+                  <div class="form-group">
+                    <%= f.text_field :title, class: "form-control", id: "title", required: true, placeholder: "Titulo" %>
+                  </div>
+                  <div class="form-group">
+                  <%= f.text_area :comment, class: "form-control", id: "message", required: true, placeholder: "Comentário", maxlength: "140", rows: "4" %>
+                      <span class="help-block"><p id="characterLeft" class="help-block ">Você chegou no limite de 140 caracteres</p></span>
+                  </div>
+                  <%= f.submit 'Enviar Comentário', class: "btn btn-primary pull-right" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <div class=row>
+          <section class="comment-list">
+            <% comments.each do |comment| %>
+              <%= render partial: "shared/comment", locals: { comment: comment } %>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  </div>

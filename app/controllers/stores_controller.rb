@@ -11,6 +11,8 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @new_comment = Comment.new(commentable: @store, user: current_user)
+    @comments = @store.comments.includes(:user).recent.limit(10).all
   end
 
   # GET /stores/new

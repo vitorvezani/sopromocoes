@@ -1,6 +1,5 @@
 <!-- http://bootsnipp.com/snippets/featured/css-coupons -->
 <div class="page-header">
-  <a class="btn btn-default" href="/coupons"><span class="glyphicon glyphicon-list-alt"></span> Voltar</a>
   <h1><%= @coupon.name.titleize %></h1>
 </div>
 
@@ -8,4 +7,5 @@
   <div class="col-md-6 col-md-offset-3">
     <%= render partial: "coupons/shared/coupon", locals: {coupon: @coupon} %>
   </div>
+  <%= render partial: "shared/comments", locals: { comments: @comments, new_comment: @new_comment } %>
 </div>

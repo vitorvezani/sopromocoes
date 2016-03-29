@@ -27,3 +27,5 @@
   <dd><%= @store.url %></dd>
 
 </dl>
+
+  <%= render partial: "shared/comments", locals: { comments: @comments, new_comment: @new_comment } %>
