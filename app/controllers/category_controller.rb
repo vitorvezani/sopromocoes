@@ -1,4 +1,5 @@
 class CategoryController < ApplicationController
+
   def index
     @category = nil
     @categories = Category.find(:all, :conditions => {:parent_id => nil } )

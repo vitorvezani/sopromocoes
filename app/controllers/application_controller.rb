@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+  before_filter :all_categories
+
+  def all_categories
+      @categories = Category.where(parent_id: nil).includes(:subcategories)
+  end
 
   include PublicActivity::StoreController
 

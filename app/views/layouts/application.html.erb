@@ -34,6 +34,21 @@
           <li><%= link_to "Ofertas", promotions_path %></li>
           <li><%= link_to "Coupons", coupons_path %></li>
           <li><%= link_to "Lojas", stores_path %></li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+            <% @categories.each do |category| %>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= category.text %></a>
+                <ul class="dropdown-menu">
+                  <% category.subcategories.each do |sub_category| %>
+                    <li><a href="#"><%= sub_category.text %></a></li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
+            </ul>
+          </li>
           <li><%= link_to "Sobre", about_path %></li>
           <li><%= link_to "Contato", contact_path %></li>
         </ul>
