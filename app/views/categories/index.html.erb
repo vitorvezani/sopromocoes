@@ -1,0 +1,14 @@
+<h1><%= @category.nil? ? 'Main categories' : category.text %></h1>
+<table>
+<% @categories.each do |category| %>
+<tr>
+  <td><%= link_to category.text, category_path(category) %></td>
+  <td><%= link_to 'Edit', edit_category_path(category) unless category.parent.nil? %></td>
+  <td><%= link_to 'Destroy', category_path(category), :confirm => 'Are you sure?', :method => :delete unless category.parent.nil? %></td>
+</tr>
+<% end %>
+</table>
+<p>
+  <%= link_to 'Back', @category.parent.nil? ? categories_path : category_path(@category.parent) unless @category.nil? %>
+  <%= link_to 'New (sub-category', new_category_path(@category) unless @category.nil? %>
+</p>
