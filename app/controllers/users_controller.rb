@@ -74,6 +74,6 @@ class UsersController < ApplicationController
     end
 
     def load_activities
-      @activities = PublicActivity::Activity.where(owner_id: current_user.id, owner_type: "User").order('created_at DESC').limit(20)
+      @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User").order('created_at DESC').limit(20)
     end
 end
