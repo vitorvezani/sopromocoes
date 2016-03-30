@@ -1,16 +1,16 @@
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-signin form-forgot-password" }) do |f| %>
   <%= devise_error_messages! %>
 
-  <h2 class="form-signin-heading">Resend confirmation instructions</h2>
+  <h2 class="form-signin-heading">Reenviar instruções de confirmação</h2>
 
   <div class="field">
     <%= f.label :email, class: "sr-only" %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), 
-    									class: "form-control", placeholder: "Email Adress", required: true %> 
+    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+    									class: "form-control", placeholder: "Endereço de Email", required: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions", class: "btn btn-lg btn-primary btn-block" %> <hr/>
+    <%= f.submit "Reenviar instruções de confirmação", class: "btn btn-lg btn-primary btn-block" %> <hr/>
   </div>
 
   <%= render "devise/shared/links" %>
