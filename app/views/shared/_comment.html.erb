@@ -15,8 +15,10 @@
         <div class="comment-post">
           <p><%= comment.comment %></p>
         </div>
-      <%= link_to "Editar", edit_comment_path(comment) if owns_record(comment) %> |
-      <%= link_to "Excluir", comment, method: :delete, data: { confirm: 'Você tem certeza?' } if owns_record(comment) %>
+        <% if owns_record(comment) %>
+          <%= link_to "Editar", edit_comment_path(comment) %> |
+          <%= link_to "Excluir", comment, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+        <% end %>
       </div>
     </div>
   </div>

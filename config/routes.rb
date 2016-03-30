@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :comments
 
   get 'home/about', as: :about
-
   get 'home/contact', as: :contact
 
   # Devise routes

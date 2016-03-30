@@ -79,6 +79,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 # The ActiveRecord acts_as_commentable plugin -> https://github.com/jackdempsey/acts_as_commentable
 gem 'acts_as_commentable'
 
+# Easy activity tracking for models - https://github.com/chaps-io/public_activity
+gem 'public_activity'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

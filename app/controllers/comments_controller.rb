@@ -23,12 +23,11 @@ class CommentsController < ApplicationController
 
     def require_ownership
       if current_user.id.to_s != params[:comment][:user_id].to_s
-        puts "User: " + current_user.id.to_s
-        puts "Param: " + params[:comment][:user_id].to_s
         @error = 'Você não tem autoridade para criar/deletar/alterar esse comentário'
         respond_to do |format|
           format.js {}
         end
       end
     end
+
 end
