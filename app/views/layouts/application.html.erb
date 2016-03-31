@@ -37,12 +37,12 @@
           <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
             <ul class="dropdown-menu multi-level">
-            <% @categories.each do |category| %>
+            <% @all_categories.each do |category| %>
               <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= category.text %></a>
+                <%= link_to category.text, category, class: "dropdown-toggle", data: { toggle: "dropdown" } %>
                 <ul class="dropdown-menu">
                   <% category.subcategories.each do |sub_category| %>
-                    <li><a href="#"><%= sub_category.text %></a></li>
+                    <li><%= link_to sub_category.text, sub_category %></li>
                   <% end %>
                 </ul>
               </li>

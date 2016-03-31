@@ -2,7 +2,7 @@ class CategoryController < ApplicationController
 
   def index
     @category = nil
-    @categories = Category.find(:all, :conditions => {:parent_id => nil } )
+    @categories = Category.find(:all, conditions: {parent_id: nil } )
   end
 
   # Show subcategory
@@ -12,7 +12,7 @@ class CategoryController < ApplicationController
     # Grab all sub-categories
     @categories = @category.subcategories
     # We want to reuse the index renderer:
-    render :action => :index
+    render action: :index
   end
 
   def new

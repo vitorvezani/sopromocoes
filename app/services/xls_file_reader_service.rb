@@ -18,7 +18,7 @@ class XlsFileReaderService
 
 	  	# TODO
 
-	  	csv = Roo::CSV.new(@file.tempfile, :quote_char => "|") # arquivo na memoria
+	  	csv = Roo::CSV.new(@file.tempfile, quote_char: "|") # arquivo na memoria
 
 			for i in 2..csv.count
 

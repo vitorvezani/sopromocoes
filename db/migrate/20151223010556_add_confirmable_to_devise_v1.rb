@@ -9,6 +9,6 @@ class AddConfirmableToDeviseV1 < ActiveRecord::Migration
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email # Only if using reconfirmable
     end
-    add_index  :users, :confirmation_token, :unique => true 
+    add_index  :users, :confirmation_token, unique: true
   end
 end

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_filter :all_categories
 
   def all_categories
-      @categories = Category.where(parent_id: nil).includes(:subcategories)
+      @all_categories = all_cached_categories
   end
 
   include PublicActivity::StoreController
@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  private
+    def all_cached_categories
+      Rails.cache.fetch("all_cached_categories", expires_in: 12.hours) do
+        Category.where(parent_id: nil).includes(:subcategories)
+      end
+    end
 end

@@ -4,7 +4,7 @@
 <tr>
   <td><%= link_to category.text, category_path(category) %></td>
   <td><%= link_to 'Edit', edit_category_path(category) unless category.parent.nil? %></td>
-  <td><%= link_to 'Destroy', category_path(category), :confirm => 'Are you sure?', :method => :delete unless category.parent.nil? %></td>
+  <td><%= link_to 'Destroy', category_path(category), confirm: 'Are you sure?', method: :delete unless category.parent.nil? %></td>
 </tr>
 <% end %>
 </table>

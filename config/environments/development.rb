@@ -43,7 +43,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Devise Config
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'lvh.me', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     tls: true,
@@ -61,10 +61,10 @@ Rails.application.configure do
   Bullet.bullet_logger = true
   Bullet.console = true
   #Bullet.growl = true
-  #Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
-  #                :password => 'bullets_password_for_jabber',
-  #                :receiver => 'your_account@jabber.org',
-  #                :show_online_status => true }
+  #Bullet.xmpp = { account: 'bullets_account@jabber.org',
+  #                password: 'bullets_password_for_jabber',
+  #                receiver: 'your_account@jabber.org',
+  #                show_online_status: true }
   Bullet.rails_logger = true
   #Bullet.honeybadger = true
   #Bullet.bugsnag = true

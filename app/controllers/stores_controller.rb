@@ -13,11 +13,11 @@ class StoresController < ApplicationController
         else
           @stores = Store.limit(10)
         end
-        render :json => @stores, :callback => params[:jsonp]
+        render json: @stores, callback: params[:jsonp]
       end
 
       format.html do
-        @stores = Store.paginate(:page => params[:page], :per_page => 21 )
+        @stores = Store.paginate(page: params[:page], per_page: 21 )
       end
 
     end
