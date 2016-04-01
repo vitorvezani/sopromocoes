@@ -1,6 +1,28 @@
 <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f| %>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Termos e Condições</h4>
+      </div>
+      <div class="modal-body">
+        <p>O Grupo das Ofertas é um serviço totalmente gratuito para você, consumidor. O Grupo das Ofertas não vende ou comercializa nenhum produto. Por isso, não garantimos a disponibilidade e preço das ofertas e descontos exibidos neste site por seus parceiros.</p>
+        <p>Os preços e condições de venda de cada lojista podem ser alterados após o envio deste e-mail, portanto, confira sempre o preço na página do produto da loja direcionada antes de efetuar a compra. A entrega do pedido é condicionada à disponibilidade do estoque do lojista e não está sob o controle das operações do Grupo das Ofertas.</p>
+        <p>Caso haja diferença de preço ou descrição do produto entre este e-mail e o do site da loja, a condição válida e praticada será a do site do lojista. Sempre confira o preço e as condições diretamente no site da loja. Veja também as regras de entrega gratuita, parcelamento e política de vendas no site do lojista.</p>
+        <p>Vale ressaltar que as ofertas são válidas apenas na data e horário enviado ou no término do estoque do lojista, o que ocorrer primeiro. As ofertas dos varejistas podem ser alteradas ou interrompidas a qualquer momento, sem aviso prévio. As imagens são meramente ilustrativas.</p>
+        <p>Para garantir que nossos comunicados cheguem em sua caixa de entrada, adicione o e-mail no-reply@grupodasofertas.com.br ao seu catálogo de endereços. Para mais informações ou dúvidas, escreva para grupodasofertas@gmail.com</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", id: "signin-form"}) do |f| %>
 
   <h2 class="form-signin-heading">Por favor, registre-se</h2>
   <hr>
@@ -15,6 +37,10 @@
 
   <%= f.label :password_confirmation, class: "sr-only" %>
   <%= f.password_field :password, class: "form-control", placeholder: "Confirmação da Senha", autocomplete: "off", required: true %>
+
+  <div class="checkbox">
+    <input id="terms-and-conditions" type="checkbox" value=""><label>Aceito os <a href="#myModal" data-toggle="modal" data-target="#myModal">Termos e Condições</a></label>
+  </div>
 
   <%= f.submit "Registrar", class: "btn btn-lg btn-primary btn-block" %> <hr/>
   <%= render "devise/shared/links" %>
