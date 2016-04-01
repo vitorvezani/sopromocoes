@@ -38,7 +38,14 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
   gem 'rails-assets-sweetalert'
+  gem 'rails-assets-alertifyjs'
 end
+
+# Fontawesome - https://github.com/bokmann/font-awesome-rails
+gem "font-awesome-rails"
+
+# A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation. http://www.simonecarletti.com/code/breadcrumbs_on_rails
+gem "breadcrumbs_on_rails"
 
 # Integrates the Twitter Bootstrap pagination component with will_paginate
 # https://github.com/bootstrap-ruby/will_paginate-bootstrap
@@ -56,13 +63,10 @@ gem "passenger"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Fontawesome - https://github.com/bokmann/font-awesome-rails
-gem "font-awesome-rails"
-
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-# Devise
+# Devise & Omniauth
 gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Lojas", :stores_path
+
+  before_action :set_store, :add_breadcrumb_store, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /stores
@@ -88,5 +90,10 @@ class StoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
       params.require(:store).permit(:name, :description, :twitter, :logo_url, :url)
+    end
+
+    # Must be executed after StoreController.set_store
+    def add_breadcrumb_store
+      add_breadcrumb @store.name.truncate(45)
     end
 end

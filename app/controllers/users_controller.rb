@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Usuários", :users_path
+
+  before_action :set_user, :add_breadcrumb_user, only: [:show, :edit, :update, :destroy]
   before_action :load_activities, only: [:show]
 
   # GET /users
@@ -75,5 +77,10 @@ class UsersController < ApplicationController
 
     def load_activities
       @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User").order('created_at DESC').limit(20)
+    end
+
+    # Must be executed after UserController.set_user
+    def add_breadcrumb_user
+      add_breadcrumb @user.name.truncate(45)
     end
 end

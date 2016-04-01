@@ -1,5 +1,7 @@
 class PromotionsController < ApplicationController
-  before_action :set_promotion, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Ofertas", :promotions_path, :title => "Back to the Index"
+
+  before_action :set_promotion, :add_breadcrumb_promotion, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /promotions
@@ -86,5 +88,10 @@ class PromotionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def promotion_params
       params.require(:promotion).permit(:name, :description, :external_id, :image_url, :discount, :price_from, :price_to, :price_billet, :url, :enabled, :affiliate, :begin_at, :end_at, :store_id)
+    end
+
+    # Must be executed after PromotionController.set_promotion
+    def add_breadcrumb_promotion
+      add_breadcrumb @promotion.name.truncate(45), :title => "Back to the Index"
     end
 end

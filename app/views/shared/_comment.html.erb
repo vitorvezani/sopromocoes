@@ -1,4 +1,4 @@
-<article class="row">
+<article id="comment-<%= comment.id %>" class="row">
   <div class="col-md-2 col-sm-2 hidden-xs">
     <figure class="thumbnail">
       <img class="img-responsive" src=<%= comment.user.image_url %> />
@@ -10,14 +10,14 @@
       <div class="panel-body">
         <header class="text-left">
           <div class="comment-user"><i class="fa fa-user"></i> <%= comment.title %> </div>
-          <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= comment.created_at.to_s(:long) %></time>
+          <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= comment.created_at.to_s(:hours_date) %></time>
         </header>
         <div class="comment-post">
           <p><%= comment.comment %></p>
         </div>
         <% if owns_record(comment) %>
           <%= link_to "Editar", edit_comment_path(comment) %> |
-          <%= link_to "Excluir", comment, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+          <%= link_to "Excluir", comment, method: :delete, remote: :true, data: { confirm: 'Você tem certeza?' } %>
         <% end %>
       </div>
     </div>

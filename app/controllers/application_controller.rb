@@ -1,10 +1,19 @@
 class ApplicationController < ActionController::Base
   before_filter :all_categories
 
+  add_breadcrumb "Home", :root_path
+
   def all_categories
       @all_categories = all_cached_categories
   end
 
+  def owns_record(record)
+    return false if record.user.nil? or current_user.nil?
+    current_user.id.to_s == record.user.id.to_s
+  end
+
+  # BEGIN OF HACK
+  # Hack to set the current user to use in the model
   include PublicActivity::StoreController
 
   def default_current_user
@@ -13,6 +22,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :default_current_user
   hide_action :default_current_user
+  # END OF HACK
+
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

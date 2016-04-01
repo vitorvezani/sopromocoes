@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  sweetAlert('Oops...', "<%= @error %>", 'error')
+<% else %>
+  $("#comment-<%= @comment.id %>").hide();
+<% end %>

@@ -1,5 +1,8 @@
 class CouponsController < ApplicationController
-  before_action :set_coupon, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Cupons", :coupons_path
+
+  before_action :set_coupon, :add_breadcrumb_coupon, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /coupons
   # GET /coupons.json
@@ -72,5 +75,10 @@ class CouponsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
       params.require(:coupon).permit(:name, :code, :url, :begin_at, :end_at, :enabled, :rules_url, :affiliate, :store_id)
+    end
+
+    # Must be executed after CouponController.set_coupon
+    def add_breadcrumb_coupon
+      add_breadcrumb @coupon.name.truncate(45)
     end
 end
