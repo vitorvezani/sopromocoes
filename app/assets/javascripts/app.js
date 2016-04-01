@@ -1,7 +1,6 @@
 myApp = angular.module('myApp',['infinite-scroll']);
 
 myApp.controller('PromotionsController', function($scope, SoPromocoes) {
-  console.log("tesste");
   $scope.soPromocoes = new SoPromocoes();
 });
 

@@ -16,4 +16,8 @@
 //= require angular
 //= require ngInfiniteScroll
 //= require sweetalert
+//= require alertifyjs
 //= require_tree .
+
+alertify.logPosition("top right");
+alertify.closeLogOnClick(true)

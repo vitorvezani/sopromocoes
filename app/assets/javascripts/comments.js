@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('#characterLeft').text('140 caracteres faltantes');
     $('#message').keydown(function () {
-        console.log(max)
         var max = 140;
         var len = $(this).val().length;
         if (len >= max) {

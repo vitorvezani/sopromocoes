@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  add_breadcrumb "Ofertas", :promotions_path, :title => "Back to the Index"
+  add_breadcrumb "Ofertas", :promotions_path
 
   before_action :set_promotion, :add_breadcrumb_promotion, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -92,6 +92,6 @@ class PromotionsController < ApplicationController
 
     # Must be executed after PromotionController.set_promotion
     def add_breadcrumb_promotion
-      add_breadcrumb @promotion.name.truncate(45), :title => "Back to the Index"
+      add_breadcrumb @promotion.name.truncate(45)
     end
 end

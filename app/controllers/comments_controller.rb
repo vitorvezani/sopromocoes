@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        @success = 'Comentário criado com sucesso!'
         format.js {}
         format.json { render json: @comment, status: :created, location: @comment }
       else
@@ -23,6 +24,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy unless @error
+
+    @success = 'Comentário excluido com sucesso!'
 
     respond_to do |format|
       format.js {}

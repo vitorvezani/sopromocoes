@@ -1,7 +1,8 @@
 <% if @error.present? %>
-  sweetAlert('Oops...', "<%= @error %>", 'error')
+  alertify.error("<%= @error %>");
 <% else %>
   $("<%= escape_javascript render(partial: 'shared/comment', locals: { comment: @comment }) %>").prependTo(".comment-list");
+  alertify.success("<%= @success %>");
   $("#title").val('');
   $("#message").val('');
 <% end %>

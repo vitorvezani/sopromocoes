@@ -38,7 +38,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-ngInfiniteScroll'
   gem 'rails-assets-sweetalert'
-  gem 'rails-assets-alertifyjs'
+  gem 'rails-assets-alertifyjs' # https://alertifyjs.org/#
 end
 
 # Fontawesome - https://github.com/bokmann/font-awesome-rails
