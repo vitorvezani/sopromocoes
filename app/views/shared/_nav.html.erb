@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to Rails.application.config.app_name, root_path, class: "navbar-brand" %>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Ofertas", promotions_path %></li>
+        <li><%= link_to "Coupons", coupons_path %></li>
+        <li><%= link_to "Lojas", stores_path %></li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
+          <ul class="dropdown-menu multi-level">
+          <% @all_categories.each do |category| %>
+            <li class="dropdown-submenu">
+              <%= link_to category.name, category, class: "dropdown-toggle", data: { toggle: "dropdown" } %>
+              <ul class="dropdown-menu">
+                <% category.subcategories.each do |sub_category| %>
+                  <li><%= link_to sub_category.name, sub_category %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+        <li><%= link_to "Sobre", about_path %></li>
+        <li><%= link_to "Contato", contact_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Perfil", user_path(current_user) %></li>
+                <li><a href="#">Minhas Ofertas</a></li>
+                <% if current_user.try(:admin?) %>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "Importar Ofertas", new_admin_promotion_path %></li>
+                <% end %>
+                <li role="separator" class="divider"></li>
+                <!-- <li class="dropdown-header">Nav header</li> -->
+                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Registrar", new_user_registration_path %></li>
+            <li><%= link_to "Entrar", new_user_session_path %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</nav>
