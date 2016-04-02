@@ -9,17 +9,20 @@
 							<%= label_tag(:email, "E-mail") %>
 				    	<%= text_field_tag :email, 	current_user.try(:email) , { class: "form-control", disabled: signed_in? } %>
 				    	<br/>
+				    	<%= label_tag(:title, "Título") %>
+				    	<%= text_field_tag :title, 	current_user.try(:title) , { class: "form-control" } %>
+				    	<br/>
 				    	<%= label_tag(:msg, "Mensagem") %>
 				    	<%= text_area_tag :msg, "", {rows: 8, class: "form-control"} %>
 				  	</div>
 				    <%= submit_tag "Enviar", class: "btn btn-large btn-primary" %>
-				<% end %>				
+				<% end %>
 			</div>
 			<div class="col-md-6 column">
 				<address>
-					<strong><%= Rails.application.config.app_name %>!</strong><br> 
-					Av. Antonio Serafin Petean<br> Pedreira, SP 590<br> 
-					<abbr title="Telefone">Tel:</abbr> 
+					<strong><%= Rails.application.config.app_name %>!</strong><br>
+					Av. Antonio Serafin Petean<br> Pedreira, SP 590<br>
+					<abbr title="Telefone">Tel:</abbr>
 					(19) 99206-1233
 				</address>
 				<div class="carousel slide" id="carousel-13587">

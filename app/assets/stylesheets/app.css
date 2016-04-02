@@ -1,21 +1,18 @@
-/* Fixed Top */
-body {
-  min-height: 600px;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  min-height: 600px;
+  padding-top: 20px;
+  /* padding-bottom: 20px; */
+  background-color: #eee;
+  /* margin-bottom: 60px; */
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
 .btn-social {
   color: #fff !important;
 }

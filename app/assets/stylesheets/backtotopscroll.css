@@ -68,7 +68,7 @@ Image placeholders: placemi.com
 .footer {
     color: #887;
     background-color: #eee;
-    padding-top: 45px;
+    /* padding-top: 45px; */
     padding-bottom: 45px;
 }
 
