@@ -1,5 +1,5 @@
 .promotion {
-    border: 3px dashed #bcbcbc;
+    /* border: 3px dashed #bcbcbc; */
     border-radius: 10px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
     "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -108,4 +108,42 @@ sup {
 .print {
     font-size: 14px;
     float: right;
+}
+
+.shape{
+    border-style: solid; border-width: 0 60px 60px 0; float:right; height: 0px; width: 0px;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.shape-text{
+    color:#fff; font-size:15px; font-weight:bold; position:relative; right:-32px; top:-2px; white-space: nowrap;
+    -ms-transform:rotate(30deg); /* IE 9 */
+    -o-transform: rotate(360deg);  /* Opera 10.5 */
+    -webkit-transform:rotate(46deg); /* Safari and Chrome */
+    transform:rotate(46deg);
+}
+
+.shape {
+    border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
+}
+
+.panel-danger .shape{
+    border-color: transparent #d9534f transparent transparent;
+}
+.panel-success .shape{
+    border-color: transparent #5cb85c transparent transparent;
+}
+.panel-default .shape{
+    border-color: transparent #999999 transparent transparent;
+}
+.panel-primary .shape{
+    border-color: transparent #428bca transparent transparent;
+}
+.panel-info .shape{
+    border-color: transparent #5bc0de transparent transparent;
+}
+.panel-warning .shape{
+    border-color: transparent #f0ad4e transparent transparent;
 }

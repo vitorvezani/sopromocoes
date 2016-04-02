@@ -1,5 +1,12 @@
 <div class="panel panel-<%= random_bootstrap_color %> promotion">
   <div class="panel-heading" id="head">
+    <div class="shape">
+      <% if promotion.discount %>
+        <div class="shape-text">
+          <%= number_to_percentage(promotion.discount, precision: 0) %>
+        </div>
+      <% end %>
+    </div>
     <div class="panel-title" id="title">
         <%= link_to promotion.store.name.titleize, promotion.store %><br>
         <span class="hidden-xs"><%= link_to promotion.name.titleize.truncate(115), promotion %></span>
@@ -11,9 +18,6 @@
   </div>
   <div class="panel-footer">
     <div class="promotion-code">
-        <% if promotion.discount %>
-          <h5><b>Desconto de <span class="text-danger"><%= number_to_percentage(promotion.discount, precision: 0) %></span></b></h5>
-        <% end %>
         <h5><b>De <%= number_to_currency(promotion.price_from) %> por <%= number_to_currency(promotion.price_to) %></b></h5>
         <p>Enviado por <%= link_to promotion.user.name.titleize, promotion.user %></p>
     </div>
