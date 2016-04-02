@@ -20,6 +20,8 @@
                   <%= f.submit 'Enviar Comentário', class: "btn btn-primary pull-right" %>
                 <% end %>
               </div>
+            <% else %>
+              <p><%= link_to 'Entre', new_user_session_path %> para comentar!
             <% end %>
           </div>
         </div>
