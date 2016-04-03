@@ -15,6 +15,9 @@
         <div class="comment-post">
           <p><%= comment.comment %></p>
         </div>
+        <hr>
+        <%= render 'votes/likes', votable: comment %>
+        <div>
         <% if owns_record(comment) %>
           <%= link_to "Editar", edit_comment_path(comment) %> |
           <%= link_to "Excluir", comment, method: :delete, remote: :true, data: { confirm: 'Você tem certeza?' } %>

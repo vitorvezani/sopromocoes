@@ -27,7 +27,7 @@ class PromotionsController < ApplicationController
   # GET /promotions/1.json
   def show
     @new_comment = Comment.new(commentable: @promotion, user: current_user)
-    @comments = @promotion.comments.includes(:user).recent.limit(10).all
+    @comments = @promotion.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
   end
 
   # GET /promotions/new

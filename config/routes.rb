@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :promotions
   resources :stores
   resources :coupons
-  resources :comments
+  resources :comments do
+    member do
+      put "like", to: "comments#upvote"
+    end
+  end
 
   get 'home/about', as: :about
   get 'home/contact', as: :contact

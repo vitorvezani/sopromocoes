@@ -87,3 +87,11 @@
   margin: 10px 0px 60px;
   border: 1px solid GREY;
 }
+
+.comment-user {
+  font-size: 16px;
+}
+
+.comment-date {
+  font-size: 12px
+}

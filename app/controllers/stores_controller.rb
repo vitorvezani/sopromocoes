@@ -29,7 +29,7 @@ class StoresController < ApplicationController
   # GET /stores/1.json
   def show
     @new_comment = Comment.new(commentable: @store, user: current_user)
-    @comments = @store.comments.includes(:user).recent.limit(10).all
+    @comments = @store.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
   end
 
   # GET /stores/new

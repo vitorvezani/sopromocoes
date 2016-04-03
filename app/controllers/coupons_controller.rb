@@ -14,7 +14,7 @@ class CouponsController < ApplicationController
   # GET /coupons/1.json
   def show
     @new_comment = Comment.new(commentable: @coupon, user: current_user)
-    @comments = @coupon.comments.includes(:user).recent.limit(10).all
+    @comments = @coupon.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
   end
 
   # GET /coupons/new

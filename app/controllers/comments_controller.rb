@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   add_breadcrumb "Comentários", :comments_path
 
-  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy, :upvote]
 
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote]
   before_action :require_ownership, only: [:edit, :update, :destroy]
 
   def create
@@ -26,6 +26,24 @@ class CommentsController < ApplicationController
     @comment.destroy unless @error
 
     @success = 'Comentário excluido com sucesso!'
+
+    respond_to do |format|
+      format.js {}
+      #format.html { redirect_to comments_url, notice: 'Loja foi excluida com sucesso.' }
+      #format.json { head :no_content }
+    end
+  end
+
+  def upvote
+
+    unless current_user.voted_for? @comment
+      @comment.liked_by current_user
+      @success = 'Comentário curtido com sucesso!'
+    else
+      @comment.unliked_by current_user
+      @success = 'Comentário descurtido com sucesso!'
+    end
+
 
     respond_to do |format|
       format.js {}
