@@ -20,6 +20,11 @@
     <div class="promotion-code">
         <h5><b>De <%= number_to_currency(promotion.price_from) %> por <%= number_to_currency(promotion.price_to) %></b></h5>
         <p>Enviado por <%= link_to promotion.user.name.titleize, promotion.user %></p>
+        <div class="statistic">
+          <i class="fa fa-heart-o"></i> <span>852</span> -
+          <i class="fa fa-comments-o"></i> <span>852</span> -
+          <i class="fa fa-eye"></i> <span>9852</span>
+        </div>
     </div>
     <% if promotion.end_at? %>
       <div class="exp">Expira em: <%= promotion.end_at.to_s(:long) %></div>

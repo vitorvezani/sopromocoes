@@ -39,6 +39,7 @@ class CommentsController < ApplicationController
     unless current_user.voted_for? @comment
       @comment.liked_by current_user
       @success = 'Comentário curtido com sucesso!'
+      @is_upvote = true
     else
       @comment.unliked_by current_user
       @success = 'Comentário descurtido com sucesso!'

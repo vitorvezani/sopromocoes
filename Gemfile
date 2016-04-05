@@ -86,6 +86,9 @@ gem 'acts_as_commentable'
 # Easy activity tracking for models - https://github.com/chaps-io/public_activity
 gem 'public_activity'
 
+# Rails Plugin that tracks impressions and page views
+gem 'impressionist'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

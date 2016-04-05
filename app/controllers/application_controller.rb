@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   hide_action :default_current_user
   # END OF HACK
 
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

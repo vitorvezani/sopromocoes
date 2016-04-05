@@ -7,4 +7,5 @@ class HomeController < ApplicationController
   def contact
     add_breadcrumb "Contato", :contact_path
   end
+
 end
