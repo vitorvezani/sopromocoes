@@ -1,0 +1,14 @@
+<% @tops.each_slice(3) do |three_tops| %>
+  <div class="row">
+    <% three_tops.each do |top| %>
+      <div class="col-md-4">
+        <% if top.is_a? Promotion %>
+          <%= render partial: "promotions/shared/promotion", locals: { promotion: top } %>
+        <% else %>
+          <!-- Comentário -->
+          <%= render partial: "coupons/shared/coupon", locals: { coupon: top } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

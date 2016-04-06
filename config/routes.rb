@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'home/about', as: :about
   get 'home/contact', as: :contact
+  get 'home/top', as: :top
 
   # Devise routes
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
