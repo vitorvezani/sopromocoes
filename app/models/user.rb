@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
 
   acts_as_voter
 
@@ -10,13 +11,20 @@ class User < ActiveRecord::Base
   has_many :promotions, dependent: :destroy
   has_many :coupons, dependent: :destroy
 
-def self.from_omniauth_facebook(auth)
-  where(provider_facebook: auth.provider, uid_facebook: auth.uid).first_or_create do |user|
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20] if user.password.nil?
-    user.name = auth.info.name
-    user.image_url = auth.info.image
+  friendly_id :username, use: :slugged
+
+  validates :email, confirmation: true
+  validates :password, confirmation: true
+
+  validates :username, length: { minimum: 6 }, uniqueness: true, presence: true
+
+  def self.from_omniauth_facebook(auth)
+    where(provider_facebook: auth.provider, uid_facebook: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20] if user.password.nil?
+      user.name = auth.info.name
+      user.image_url = auth.info.image
+    end
   end
-end
 
 end

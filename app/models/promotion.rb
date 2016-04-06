@@ -1,4 +1,5 @@
 class Promotion < ActiveRecord::Base
+  extend FriendlyId
 
   include PublicActivity::Model
   tracked
@@ -10,6 +11,8 @@ class Promotion < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :store
+
+  friendly_id :name, use: :slugged
 
   #validates :title, presence: true
   #validates :body, presence: true

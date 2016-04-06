@@ -1,4 +1,5 @@
 class Store < ActiveRecord::Base
+  extend FriendlyId
 
   include PublicActivity::Model
   tracked
@@ -8,6 +9,8 @@ class Store < ActiveRecord::Base
 
   has_many :promotions
 	has_many :coupons
+
+  friendly_id :name, use: :slugged
 
   #validates :title, presence: true
   #validates :body, presence: true

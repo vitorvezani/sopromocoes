@@ -2,6 +2,10 @@ i:hover[class*="fa-clickable"] {
   font-size: 1.7em;
 }
 
+i:hover[class*="fa-heart"] {
+  color: #FF0000;
+}
+
 .fa-1-5 {
   font-size: 1.5em;
 }

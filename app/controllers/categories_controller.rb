@@ -66,7 +66,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -79,26 +79,3 @@ class CategoriesController < ApplicationController
       add_breadcrumb @category.name.truncate(45)
     end
 end
-
-=begin
-
-  def index
-    @category = nil
-    @categories = Category.find(:all, conditions: {parent_id: nil } )
-  end
-
-  # Show subcategory
-  def show
-    # Find the category belonging to the given id
-    @category = Category.find(params[:id])
-    # Grab all sub-categories
-    @categories = @category.subcategories
-    # We want to reuse the index renderer:
-    render action: :index
-  end
-
-  def new
-    @category = Category.new
-    @category.parent = Category.find(params[:id]) unless params[:id].nil?
-  end
-=end
