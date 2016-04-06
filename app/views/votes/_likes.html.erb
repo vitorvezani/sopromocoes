@@ -1,8 +1,8 @@
 <span class="like"> <%= votable.get_likes.size %> </span>
 <% if user_signed_in? && !owns_record(votable) %>
   <%= link_to like_comment_path(votable), method: :put, remote: :true do %>
-    <i class="fa fa-thumbs-o-up"></i>
+    <i class="fa fa-thumbs-o-up fa-lg fa-clickable"></i>
   <% end %>
 <% else %>
-  <i class="fa fa-thumbs-o-up"></i>
+  <i class="fa fa-thumbs-o-up fa-lg"></i>
 <% end %>

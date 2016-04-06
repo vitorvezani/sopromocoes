@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401005426) do
+ActiveRecord::Schema.define(version: 20160406004417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,42 +58,69 @@ ActiveRecord::Schema.define(version: 20160401005426) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "coupons", force: :cascade do |t|
-    t.string   "name",                      null: false
-    t.string   "code",                      null: false
+    t.string   "name",                             null: false
+    t.string   "code",                             null: false
     t.text     "url"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.boolean  "enabled",    default: true, null: false
+    t.boolean  "enabled",           default: true, null: false
     t.text     "rules_url"
     t.string   "affiliate"
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "store_id"
+    t.integer  "impressions_count", default: 0
   end
 
   add_index "coupons", ["name", "affiliate"], name: "index_coupons_on_name_and_affiliate", unique: true, using: :btree
   add_index "coupons", ["store_id"], name: "index_coupons_on_store_id", using: :btree
   add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
+
   create_table "promotions", force: :cascade do |t|
-    t.string   "name",                        null: false
+    t.string   "name",                             null: false
     t.text     "description"
     t.string   "external_id"
     t.text     "image_url"
     t.float    "discount"
     t.float    "price_from"
-    t.float    "price_to",                    null: false
+    t.float    "price_to",                         null: false
     t.float    "price_billet"
-    t.text     "url",                         null: false
-    t.boolean  "enabled",      default: true, null: false
-    t.string   "affiliate",                   null: false
+    t.text     "url",                              null: false
+    t.boolean  "enabled",           default: true, null: false
+    t.string   "affiliate",                        null: false
     t.datetime "begin_at"
     t.datetime "end_at"
     t.integer  "user_id"
     t.integer  "store_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "impressions_count", default: 0
   end
 
   add_index "promotions", ["name", "affiliate"], name: "index_promotions_on_name_and_affiliate", unique: true, using: :btree

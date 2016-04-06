@@ -8,16 +8,12 @@
   </div>
   <div class="panel-footer">
     <div class="coupon-code">
-        <h5>Código: '<b><%= coupon.code %></b>'</h5>
-        <p>Enviado por <%= link_to coupon.user.name.titleize, coupon.user %></p>
-        <!--
-        <span class="print">
-            <a href="#" class="btn btn-link" onclick="PrintElem('#mydiv')"><i class="fa fa-lg fa-print"></i> Imprimir Coupon</a>
-        </span>
-        -->
+      <h5>Código: '<b><%= coupon.code %></b>'</h5>
+      <div class="exp"><%= coupon.end_at.to_s(:expire) %></div>
+      <p>Enviado por <%= link_to coupon.user.name.titleize, coupon.user %></p>
+      <%= render 'shared/statistics', item: coupon %>
     </div>
     <a href=<%= coupon.url %> role="button" class="btn btn-success center-block">Aplicar Cupom!</a>
-    <div class="exp"><%= coupon.end_at.to_s(:expire) %></div>
     <% if coupon.rules_url? %>
       <div class="exp">Regras: <a href=<%= coupon.rules_url %> >Regras</a></div>
     <% end %>

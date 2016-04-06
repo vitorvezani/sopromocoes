@@ -2,17 +2,7 @@
   <h2 class="form-signin-heading">Por favor, logue-se</h2>
 
   <hr>
-
-  <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-block btn-social btn-facebook" do %>
-    <span class="fa fa-facebook"></span> Entrar com Facebook
-  <% end %>
-
-  <!--
-  <a class="btn btn-block btn-social btn-twitter">
-    <span class="fa fa-twitter"></span> Entrar com Twitter
-  </a>
-  -->
-
+  <%= render 'devise/shared/social_login' %>
   <hr>
 
   <%= f.label :email, class: "sr-only" %>

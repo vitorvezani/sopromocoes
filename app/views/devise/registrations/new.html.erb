@@ -22,26 +22,31 @@
   </div>
 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", id: "signin-form"}) do |f| %>
+<div class="row">
+  <div class="col-md-12">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", id: "signin-form"}) do |f| %>
 
-  <h2 class="form-signin-heading">Por favor, registre-se</h2>
-  <hr>
-  <%= f.label :email, class: "sr-only" %>
-  <%= f.email_field :email, class: "form-control", placeholder: "Endereço de Email", autofocus: true, required: true %>
-  <br>
-  <%= f.label 'Senha' %>
-  <% if @minimum_password_length %>
-    <em>(tamanho mínimo <%= @minimum_password_length %> caracteres )</em>
-  <% end %><br />
-  <%= f.password_field :password, class: "form-control", placeholder: "Senha", autocomplete: "off", required: true %>
+    <h2 class="form-signin-heading">Por favor, registre-se</h2>
+    <hr>
+    <%= render 'devise/shared/social_login' %>
+    <hr>
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Endereço de Email", autofocus: true, required: true %>
+    <br>
+    <%= f.label 'Senha' %>
+    <% if @minimum_password_length %>
+      <em>(tamanho mínimo <%= @minimum_password_length %> caracteres )</em>
+    <% end %><br />
+    <%= f.password_field :password, class: "form-control", placeholder: "Senha", autocomplete: "off", required: true %>
 
-  <%= f.label :password_confirmation, class: "sr-only" %>
-  <%= f.password_field :password, class: "form-control", placeholder: "Confirmação da Senha", autocomplete: "off", required: true %>
+    <%= f.label :password_confirmation, class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Confirmação da Senha", autocomplete: "off", required: true %>
 
-  <div class="checkbox">
-    <input id="terms-and-conditions" type="checkbox" value=""><label>Aceito os <a href="#myModal" data-toggle="modal" data-target="#myModal">Termos e Condições</a></label>
-  </div>
+    <div class="checkbox">
+      <input id="terms-and-conditions" type="checkbox" value=""><label>Aceito os <a href="#myModal" data-toggle="modal" data-target="#myModal">Termos e Condições</a></label>
+    </div>
 
-  <%= f.submit "Registrar", class: "btn btn-lg btn-primary btn-block" %> <hr/>
-  <%= render "devise/shared/links" %>
-<% end %>
+    <%= f.submit "Registrar", class: "btn btn-lg btn-primary btn-block" %> <hr/>
+    <%= render "devise/shared/links" %>
+  <% end %>
+<div>

@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  add_breadcrumb "Ofertas", :promotions_path
+  add_breadcrumb "Ofertas", :root_path
 
   before_action :set_promotion, :add_breadcrumb_promotion, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -18,7 +18,7 @@ class PromotionsController < ApplicationController
         render json: @promotions, callback: params[:jsonp]
       end
       format.html do
-        @promotions = Promotion.includes(:store, :user).paginate(page: params[:page], per_page: 21 )
+        @promotions = Promotion.includes(:store, :user).paginate(page: params[:page], per_page: 21).order(created_at: :desc)
       end
     end
   end
@@ -28,6 +28,7 @@ class PromotionsController < ApplicationController
   def show
     @new_comment = Comment.new(commentable: @promotion, user: current_user)
     @comments = @promotion.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
+    impressionist(@promotion, nil, unique: [:impressionable_type, :impressionable_id, :session_hash])
   end
 
   # GET /promotions/new

@@ -7,7 +7,7 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.json
   def index
-    @coupons = Coupon.includes(:store, :user).paginate(page: params[:page], per_page: 21 )
+    @coupons = Coupon.includes(:store, :user).paginate(page: params[:page], per_page: 21).order(created_at: :desc)
   end
 
   # GET /coupons/1
@@ -15,6 +15,7 @@ class CouponsController < ApplicationController
   def show
     @new_comment = Comment.new(commentable: @coupon, user: current_user)
     @comments = @coupon.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
+    impressionist(@coupon, nil, unique: [:impressionable_type, :impressionable_id, :session_hash])
   end
 
   # GET /coupons/new
