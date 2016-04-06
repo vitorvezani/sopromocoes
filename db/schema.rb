@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406004417) do
+ActiveRecord::Schema.define(version: 20160406032715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,21 +58,35 @@ ActiveRecord::Schema.define(version: 20160406004417) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "coupons", force: :cascade do |t|
-    t.string   "name",                             null: false
-    t.string   "code",                             null: false
+    t.string   "name",                                   null: false
+    t.string   "code",                                   null: false
     t.text     "url"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.boolean  "enabled",           default: true, null: false
+    t.boolean  "enabled",                 default: true, null: false
     t.text     "rules_url"
     t.string   "affiliate"
     t.integer  "user_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "store_id"
-    t.integer  "impressions_count", default: 0
+    t.integer  "impressions_count",       default: 0
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "coupons", ["cached_votes_down"], name: "index_coupons_on_cached_votes_down", using: :btree
+  add_index "coupons", ["cached_votes_score"], name: "index_coupons_on_cached_votes_score", using: :btree
+  add_index "coupons", ["cached_votes_total"], name: "index_coupons_on_cached_votes_total", using: :btree
+  add_index "coupons", ["cached_votes_up"], name: "index_coupons_on_cached_votes_up", using: :btree
+  add_index "coupons", ["cached_weighted_average"], name: "index_coupons_on_cached_weighted_average", using: :btree
+  add_index "coupons", ["cached_weighted_score"], name: "index_coupons_on_cached_weighted_score", using: :btree
+  add_index "coupons", ["cached_weighted_total"], name: "index_coupons_on_cached_weighted_total", using: :btree
   add_index "coupons", ["name", "affiliate"], name: "index_coupons_on_name_and_affiliate", unique: true, using: :btree
   add_index "coupons", ["store_id"], name: "index_coupons_on_store_id", using: :btree
   add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
@@ -103,26 +117,40 @@ ActiveRecord::Schema.define(version: 20160406004417) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "promotions", force: :cascade do |t|
-    t.string   "name",                             null: false
+    t.string   "name",                                   null: false
     t.text     "description"
     t.string   "external_id"
     t.text     "image_url"
     t.float    "discount"
     t.float    "price_from"
-    t.float    "price_to",                         null: false
+    t.float    "price_to",                               null: false
     t.float    "price_billet"
-    t.text     "url",                              null: false
-    t.boolean  "enabled",           default: true, null: false
-    t.string   "affiliate",                        null: false
+    t.text     "url",                                    null: false
+    t.boolean  "enabled",                 default: true, null: false
+    t.string   "affiliate",                              null: false
     t.datetime "begin_at"
     t.datetime "end_at"
     t.integer  "user_id"
     t.integer  "store_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "impressions_count", default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "impressions_count",       default: 0
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "promotions", ["cached_votes_down"], name: "index_promotions_on_cached_votes_down", using: :btree
+  add_index "promotions", ["cached_votes_score"], name: "index_promotions_on_cached_votes_score", using: :btree
+  add_index "promotions", ["cached_votes_total"], name: "index_promotions_on_cached_votes_total", using: :btree
+  add_index "promotions", ["cached_votes_up"], name: "index_promotions_on_cached_votes_up", using: :btree
+  add_index "promotions", ["cached_weighted_average"], name: "index_promotions_on_cached_weighted_average", using: :btree
+  add_index "promotions", ["cached_weighted_score"], name: "index_promotions_on_cached_weighted_score", using: :btree
+  add_index "promotions", ["cached_weighted_total"], name: "index_promotions_on_cached_weighted_total", using: :btree
   add_index "promotions", ["name", "affiliate"], name: "index_promotions_on_name_and_affiliate", unique: true, using: :btree
   add_index "promotions", ["store_id"], name: "index_promotions_on_store_id", using: :btree
   add_index "promotions", ["user_id"], name: "index_promotions_on_user_id", using: :btree

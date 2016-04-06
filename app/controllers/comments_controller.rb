@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy, :upvote]
 
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote]
-  before_action :require_ownership, only: [:edit, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    require_ownership(@comment)
+  end
 
   def create
 
@@ -48,8 +50,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.js {}
-      #format.html { redirect_to comments_url, notice: 'Loja foi excluida com sucesso.' }
-      #format.json { head :no_content }
     end
   end
 
@@ -62,12 +62,6 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
-    end
-
-    def require_ownership
-      if !owns_record(@comment)
-        @error = 'Você não tem autoridade para criar/deletar/alterar esse comentário'
-      end
     end
 
 end

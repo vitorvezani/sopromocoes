@@ -1,8 +1,9 @@
 class PromotionsController < ApplicationController
   add_breadcrumb "Ofertas", :root_path
 
-  before_action :set_promotion, :add_breadcrumb_promotion, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_promotion, :add_breadcrumb_promotion, only: [:show, :edit, :update, :destroy, :love]
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :love]
 
   # GET /promotions
   # GET /promotions.json
@@ -77,6 +78,22 @@ class PromotionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to promotions_url, notice: 'Oferta foi excluída com sucesso.' }
       format.json { head :no_content }
+    end
+  end
+
+  def love
+
+    unless current_user.voted_for? @promotion
+      @promotion.liked_by current_user
+      @success = 'Promoção curtida com sucesso!'
+      @is_upvote = true
+    else
+      @promotion.unliked_by current_user
+      @success = 'Promoção descurtida com sucesso!'
+    end
+
+    respond_to do |format|
+      format.js { render template: "shared/products/love" }
     end
   end
 

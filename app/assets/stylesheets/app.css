@@ -36,3 +36,9 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+
+
+a.no-anchor-css, a:hover.no-anchor-css, a:visited.no-anchor-css {
+  color: inherit;
+  text-decoration: none;
+}

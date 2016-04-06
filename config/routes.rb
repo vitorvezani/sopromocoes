@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   resources :categories
-  resources :promotions
+  resources :promotions do
+    member do
+      put "love", to: "promotions#love"
+    end
+  end
+  resources :coupons do
+    member do
+      put "love", to: "coupons#love"
+    end
+  end
   resources :stores
-  resources :coupons
   resources :comments do
     member do
       put "like", to: "comments#upvote"

@@ -24,6 +24,15 @@ class ApplicationController < ActionController::Base
   hide_action :default_current_user
   # END OF HACK
 
+  # Dado um record, retorna se o usuário é "dono" do mesmo
+  # se não for, seta a variavel @error
+  def require_ownership(record)
+    if !owns_record(record)
+      @error = 'Você não tem autoridade para criar/deletar/alterar esse registro'
+    end
+  end
+  #
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
