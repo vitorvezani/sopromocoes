@@ -1,11 +1,19 @@
 <!-- http://bootsnipp.com/snippets/featured/css-coupons -->
-<div class="page-header">
-  <h3><%= @coupon.name.titleize %></h3>
+<div class="row page-header">
+  <div class="col-md-6">
+    <h3><%= @coupon.name.titleize %></h3>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <%= render 'shared/security/edit', item: @coupon, path: edit_coupon_path(@coupon) %>
+      <%= render 'shared/security/delete', item: @coupon %>
+    </div>
+  </div>
 </div>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= render partial: "coupons/shared/coupon", locals: {coupon: @coupon} %>
+    <%= render "coupons/shared/coupon", coupon: @coupon %>
   </div>
-  <%= render partial: "shared/comments", locals: { comments: @comments, new_comment: @new_comment } %>
+  <%= render "shared/comments", comments: @comments, new_comment: @new_comment %>
 </div>

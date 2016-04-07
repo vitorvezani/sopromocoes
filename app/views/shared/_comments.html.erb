@@ -29,7 +29,7 @@
         <div class=row>
           <section class="comment-list">
             <% comments.each do |comment| %>
-              <%= render partial: "shared/comment", locals: { comment: comment } %>
+              <%= render "shared/comment", comment: comment %>
           <% end %>
         </section>
       </div>

@@ -1,0 +1,18 @@
+function changeClass(element, newClass, classToRemove) {
+  element.addClass(newClass);
+  element.removeClass(classToRemove);
+}
+
+<% if @error.present? %>
+  alertify.error("<%= @error %>");
+<% else %>
+<% if @is_upvote %>
+  element = $(".coupon#<%= @coupon.id %>").find('.fa-heart-o');
+  changeClass(element, 'fa-heart', 'fa-heart-o');
+<% else %>
+  element = $(".coupon#<%= @coupon.id %>").find('.fa-heart');
+  changeClass(element, 'fa-heart-o', 'fa-heart');
+<% end %>
+  $(".coupon#<%= @coupon.id %>").find('.loves').text("<%= @coupon.get_upvotes.size %>");
+  alertify.success("<%= @success %>");
+<% end %>

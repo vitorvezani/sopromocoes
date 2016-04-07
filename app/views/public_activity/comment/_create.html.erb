@@ -3,7 +3,7 @@
   <small class="text-muted"><%= a.created_at.to_s(:hours_date) %></small><br/>
   <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
   <% if a.trackable %>
-    adicionou um comentário em <%= link_to a.trackable.commentable.name.truncate(35), resource_to_link(a.trackable.commentable) %>.
+    adicionou um comentário em <%= link_to a.trackable.commentable.name.truncate(35), resource_to_friendly_link(a.trackable.commentable) %>.
   <% else %>
     adicionou um comentário que foi deletado.
   <% end %>

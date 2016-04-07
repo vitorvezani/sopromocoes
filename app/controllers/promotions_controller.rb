@@ -29,7 +29,7 @@ class PromotionsController < ApplicationController
   def show
     @new_comment = Comment.new(commentable: @promotion, user: current_user)
     @comments = @promotion.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
-    impressionist(@promotion, nil, unique: [:impressionable_type, :impressionable_id, :session_hash])
+    impressionist(@promotion)
   end
 
   # GET /promotions/new
@@ -45,6 +45,7 @@ class PromotionsController < ApplicationController
   # POST /promotions.json
   def create
     @promotion = Promotion.new(promotion_params)
+    @promotion.user = current_user
 
     respond_to do |format|
       if @promotion.save
@@ -93,7 +94,7 @@ class PromotionsController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render template: "shared/products/love" }
+      format.js { render template: "promotions/shared/love" }
     end
   end
 

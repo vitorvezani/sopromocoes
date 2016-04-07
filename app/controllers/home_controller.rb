@@ -17,7 +17,7 @@ class HomeController < ApplicationController
         top_products = Promotion.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day)
         top_coupons = Coupon.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day)
         unsorted_tops = (top_products | top_coupons)
-        @tops = unsorted_tops.sort_by { |k| k[:impressions_count] }.reverse
+        @tops = unsorted_tops.sort_by { |k| k[:impressions_count] }
       end
     end
   end

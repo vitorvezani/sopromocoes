@@ -1,6 +1,6 @@
 <div class="statistics">
   <% if user_signed_in? %>
-    <%= link_to love_promotion_path(item), method: :put, remote: :true, class:"no-anchor-css" do %>
+    <%= link_to resource_to_friendly_link(item) + '/love', method: :put, remote: :true, class:"no-anchor-css" do %>
       <i class="fa fa-heart-o fa-lg fa-clickable"></i>
     <% end %>
   <% else %>
@@ -8,10 +8,10 @@
   <% end %>
   <span class="loves"><%= item.cached_votes_total %></span> -
 
-  <%= link_to resource_to_link(item) + '#comments', class:"no-anchor-css" do %>
+  <%= link_to resource_to_friendly_link(item) + '#comments', class:"no-anchor-css" do %>
     <i class="fa fa-comments-o fa-lg fa-clickable"></i>
   <% end %> <span><%= item.comments.count %></span> -
 
-  <i class="fa fa-eye fa-lg"></i> <span><%= item.impressionist_count %></span>
+  <i class="fa fa-eye fa-lg"></i> <span><%= item.impressions_count %></span>
 
 </div>

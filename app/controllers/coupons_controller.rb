@@ -1,7 +1,7 @@
 class CouponsController < ApplicationController
   add_breadcrumb "Cupons", :coupons_path
 
-  before_action :set_coupon, :add_breadcrumb_coupon, only: [:show, :edit, :update, :destroy]
+  before_action :set_coupon, :add_breadcrumb_coupon, only: [:show, :edit, :update, :destroy, :love]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /coupons
@@ -15,7 +15,7 @@ class CouponsController < ApplicationController
   def show
     @new_comment = Comment.new(commentable: @coupon, user: current_user)
     @comments = @coupon.comments.includes(:user).paginate(page: params[:page], per_page: 21 ).recent.limit(10)
-    impressionist(@coupon, nil, unique: [:impressionable_type, :impressionable_id, :session_hash])
+    impressionist(@coupon)
   end
 
   # GET /coupons/new
@@ -31,6 +31,7 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     @coupon = Coupon.new(coupon_params)
+    @coupon.user = current_user
 
     respond_to do |format|
       if @coupon.save
@@ -64,6 +65,22 @@ class CouponsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to coupons_url, notice: 'Cupom foi excluído com sucesso.' }
       format.json { head :no_content }
+    end
+  end
+
+  def love
+
+    unless current_user.voted_for? @coupon
+      @coupon.liked_by current_user
+      @success = 'Cupom curtido com sucesso!'
+      @is_upvote = true
+    else
+      @coupon.unliked_by current_user
+      @success = 'Cupom descurtido com sucesso!'
+    end
+
+    respond_to do |format|
+      format.js { render template: "coupons/shared/love" }
     end
   end
 

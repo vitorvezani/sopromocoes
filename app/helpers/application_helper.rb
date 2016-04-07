@@ -16,4 +16,8 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
   # </devise>
+
+  def resource_to_friendly_link(resource)
+    '/' + resource.class.name.downcase.pluralize + '/' +  resource.slug
+  end
 end

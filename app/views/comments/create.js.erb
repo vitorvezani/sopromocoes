@@ -1,7 +1,7 @@
 <% if @error.present? %>
   alertify.error("<%= @error %>");
 <% else %>
-  $("<%= escape_javascript render(partial: 'shared/comment', locals: { comment: @comment }) %>").prependTo(".comment-list");
+  $("<%= escape_javascript render('shared/comment', comment: @comment) %>").prependTo(".comment-list");
   alertify.success("<%= @success %>");
   $("#title").val('');
   $("#message").val('');

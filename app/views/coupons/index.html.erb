@@ -10,7 +10,7 @@
   <div class="row">
     <% three_coupons.each do |coupon| %>
       <div class="col-md-4">
-        <%= render partial: "coupons/shared/coupon", locals: {coupon: coupon} %>
+        <%= render "coupons/shared/coupon", coupon: coupon %>
       </div>
     <% end %>
   </div>

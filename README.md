@@ -22,5 +22,5 @@ A ideia do Só Promocoes é ser uma rede social de promocoes e cupons onde o usu
   - Tentativa de troca de link postado de usuário por link afiliado
 
 # TODO
-- Trackeabilidade
 - Validations
+- Impressionist
