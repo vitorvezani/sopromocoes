@@ -59,125 +59,125 @@ when "production"
 	#user.save(validate: false)
 end
 
-@parent_category = Category.new(text: 'Moda', parent_id: nil)
+@parent_category = Category.new(name: 'Moda', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Roupas', parent_id: @parent_category.id).save
-Category.new(text: 'Calçados', parent_id: @parent_category.id).save
-Category.new(text: 'Bolsas e Acessórios', parent_id: @parent_category.id).save
+Category.new(name: 'Roupas', parent_id: @parent_category.id).save
+Category.new(name: 'Calçados', parent_id: @parent_category.id).save
+Category.new(name: 'Bolsas e Acessórios', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Livros', parent_id: nil)
+@parent_category = Category.new(name: 'Livros', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Coleções', parent_id: @parent_category.id).save
-Category.new(text: 'Administração e Negócios', parent_id: @parent_category.id).save
-Category.new(text: 'Direito', parent_id: @parent_category.id).save
-Category.new(text: 'Literatura Estrangeira', parent_id: @parent_category.id).save
-Category.new(text: 'Literatura Nacional', parent_id: @parent_category.id).save
-Category.new(text: 'Auto-ajuda', parent_id: @parent_category.id).save
-Category.new(text: 'Romance', parent_id: @parent_category.id).save
-Category.new(text: 'Informática', parent_id: @parent_category.id).save
-Category.new(text: 'Medicina e Sáude', parent_id: @parent_category.id).save
-Category.new(text: 'Religião', parent_id: @parent_category.id).save
+Category.new(name: 'Coleções', parent_id: @parent_category.id).save
+Category.new(name: 'Administração e Negócios', parent_id: @parent_category.id).save
+Category.new(name: 'Direito', parent_id: @parent_category.id).save
+Category.new(name: 'Literatura Estrangeira', parent_id: @parent_category.id).save
+Category.new(name: 'Literatura Nacional', parent_id: @parent_category.id).save
+Category.new(name: 'Auto-ajuda', parent_id: @parent_category.id).save
+Category.new(name: 'Romance', parent_id: @parent_category.id).save
+Category.new(name: 'Informática', parent_id: @parent_category.id).save
+Category.new(name: 'Medicina e Sáude', parent_id: @parent_category.id).save
+Category.new(name: 'Religião', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'DVDs e Blu-ray', parent_id: nil)
+@parent_category = Category.new(name: 'DVDs e Blu-ray', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Coleções', parent_id: @parent_category.id).save
-Category.new(text: 'Filmes Infantis e Infanto-Juvenis', parent_id: @parent_category.id).save
-Category.new(text: 'Animação', parent_id: @parent_category.id).save
-Category.new(text: 'Séries de TV', parent_id: @parent_category.id).save
-Category.new(text: 'Blu-ray', parent_id: @parent_category.id).save
-Category.new(text: 'Blu-ray 3D', parent_id: @parent_category.id).save
+Category.new(name: 'Coleções', parent_id: @parent_category.id).save
+Category.new(name: 'Filmes Infantis e Infanto-Juvenis', parent_id: @parent_category.id).save
+Category.new(name: 'Animação', parent_id: @parent_category.id).save
+Category.new(name: 'Séries de TV', parent_id: @parent_category.id).save
+Category.new(name: 'Blu-ray', parent_id: @parent_category.id).save
+Category.new(name: 'Blu-ray 3D', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Games', parent_id: nil)
+@parent_category = Category.new(name: 'Games', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Xbox One', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos Xbox One', parent_id: @parent_category.id).save
-Category.new(text: 'PS4', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos PS4', parent_id: @parent_category.id).save
-Category.new(text: 'PS3', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos PS3', parent_id: @parent_category.id).save
-Category.new(text: 'Xbox 360', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos Xbox 360', parent_id: @parent_category.id).save
-Category.new(text: 'Nintendo WiiU', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos Nintendo WiiU', parent_id: @parent_category.id).save
-Category.new(text: 'Acessórios de Games', parent_id: @parent_category.id).save
-Category.new(text: 'Jogos para PC', parent_id: @parent_category.id).save
+Category.new(name: 'Xbox One', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos Xbox One', parent_id: @parent_category.id).save
+Category.new(name: 'PS4', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos PS4', parent_id: @parent_category.id).save
+Category.new(name: 'PS3', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos PS3', parent_id: @parent_category.id).save
+Category.new(name: 'Xbox 360', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos Xbox 360', parent_id: @parent_category.id).save
+Category.new(name: 'Nintendo WiiU', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos Nintendo WiiU', parent_id: @parent_category.id).save
+Category.new(name: 'Acessórios de Games', parent_id: @parent_category.id).save
+Category.new(name: 'Jogos para PC', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Celulares e Tefonia Fixa', parent_id: nil)
+@parent_category = Category.new(name: 'Celulares e Tefonia Fixa', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Android', parent_id: @parent_category.id).save
-Category.new(text: 'IPhone', parent_id: @parent_category.id).save
-Category.new(text: 'Microsoft', parent_id: @parent_category.id).save
-Category.new(text: 'Telefone sem fio', parent_id: @parent_category.id).save
-Category.new(text: 'Telefone sem fio com ramal', parent_id: @parent_category.id).save
+Category.new(name: 'Android', parent_id: @parent_category.id).save
+Category.new(name: 'IPhone', parent_id: @parent_category.id).save
+Category.new(name: 'Microsoft', parent_id: @parent_category.id).save
+Category.new(name: 'Telefone sem fio', parent_id: @parent_category.id).save
+Category.new(name: 'Telefone sem fio com ramal', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Informática e Tablets', parent_id: nil)
+@parent_category = Category.new(name: 'Informática e Tablets', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Notebooks e Computadores', parent_id: @parent_category.id).save
-Category.new(text: 'Tablets e iPad', parent_id: @parent_category.id).save
-Category.new(text: 'Acessórios de Informática', parent_id: @parent_category.id).save
+Category.new(name: 'Notebooks e Computadores', parent_id: @parent_category.id).save
+Category.new(name: 'Tablets e iPad', parent_id: @parent_category.id).save
+Category.new(name: 'Acessórios de Informática', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Tv, Áudio e Home Theater', parent_id: nil)
+@parent_category = Category.new(name: 'Tv, Áudio e Home Theater', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'TVs', parent_id: @parent_category.id).save
-Category.new(text: 'Home Theater', parent_id: @parent_category.id).save
-Category.new(text: 'Blu-ray Player', parent_id: @parent_category.id).save
-Category.new(text: 'TV de Led', parent_id: @parent_category.id).save
-Category.new(text: 'Smart TV', parent_id: @parent_category.id).save
-Category.new(text: 'TV 3D', parent_id: @parent_category.id).save
-Category.new(text: 'DVD Player', parent_id: @parent_category.id).save
-Category.new(text: 'Suporte para TV', parent_id: @parent_category.id).save
+Category.new(name: 'TVs', parent_id: @parent_category.id).save
+Category.new(name: 'Home Theater', parent_id: @parent_category.id).save
+Category.new(name: 'Blu-ray Player', parent_id: @parent_category.id).save
+Category.new(name: 'TV de Led', parent_id: @parent_category.id).save
+Category.new(name: 'Smart TV', parent_id: @parent_category.id).save
+Category.new(name: 'TV 3D', parent_id: @parent_category.id).save
+Category.new(name: 'DVD Player', parent_id: @parent_category.id).save
+Category.new(name: 'Suporte para TV', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Eletrodomésticos', parent_id: nil)
+@parent_category = Category.new(name: 'Eletrodomésticos', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Geladeira/Refrigerador', parent_id: @parent_category.id).save
-Category.new(text: 'Fogão', parent_id: @parent_category.id).save
-Category.new(text: 'Cooktop', parent_id: @parent_category.id).save
-Category.new(text: 'Micro-ondas', parent_id: @parent_category.id).save
-Category.new(text: 'Forno de Embutir', parent_id: @parent_category.id).save
-Category.new(text: 'Lava Louça', parent_id: @parent_category.id).save
-Category.new(text: 'Lavadora de Roupas', parent_id: @parent_category.id).save
-Category.new(text: 'Lava e Seca', parent_id: @parent_category.id).save
-Category.new(text: 'Secadora de Roupas', parent_id: @parent_category.id).save
-Category.new(text: 'Freezer', parent_id: @parent_category.id).save
-Category.new(text: 'Ar condicionado de Janela', parent_id: @parent_category.id).save
-Category.new(text: 'Ar condicionado Split', parent_id: @parent_category.id).save
+Category.new(name: 'Geladeira/Refrigerador', parent_id: @parent_category.id).save
+Category.new(name: 'Fogão', parent_id: @parent_category.id).save
+Category.new(name: 'Cooktop', parent_id: @parent_category.id).save
+Category.new(name: 'Micro-ondas', parent_id: @parent_category.id).save
+Category.new(name: 'Forno de Embutir', parent_id: @parent_category.id).save
+Category.new(name: 'Lava Louça', parent_id: @parent_category.id).save
+Category.new(name: 'Lavadora de Roupas', parent_id: @parent_category.id).save
+Category.new(name: 'Lava e Seca', parent_id: @parent_category.id).save
+Category.new(name: 'Secadora de Roupas', parent_id: @parent_category.id).save
+Category.new(name: 'Freezer', parent_id: @parent_category.id).save
+Category.new(name: 'Ar condicionado de Janela', parent_id: @parent_category.id).save
+Category.new(name: 'Ar condicionado Split', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Móveis e Decoração', parent_id: nil)
+@parent_category = Category.new(name: 'Móveis e Decoração', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Colchão', parent_id: @parent_category.id).save
-Category.new(text: 'Cama Box', parent_id: @parent_category.id).save
-Category.new(text: 'Sofá', parent_id: @parent_category.id).save
-Category.new(text: 'Rack, Estante e Painel', parent_id: @parent_category.id).save
-Category.new(text: 'Guarda-Roupa e Roupeiro', parent_id: @parent_category.id).save
-Category.new(text: 'Estante e Livreiro', parent_id: @parent_category.id).save
-Category.new(text: 'Sala de Jantar', parent_id: @parent_category.id).save
-Category.new(text: 'Cadeira de Escritório', parent_id: @parent_category.id).save
-Category.new(text: 'Cozinha Modulada', parent_id: @parent_category.id).save
-Category.new(text: 'Bar', parent_id: @parent_category.id).save
-Category.new(text: 'Cama Box Conjugado', parent_id: @parent_category.id).save
-Category.new(text: 'Cômoda', parent_id: @parent_category.id).save
-Category.new(text: 'Móveis Para Comércio', parent_id: @parent_category.id).save
-Category.new(text: 'Luminária', parent_id: @parent_category.id).save
-Category.new(text: 'Mesas Para Notebook', parent_id: @parent_category.id).save
+Category.new(name: 'Colchão', parent_id: @parent_category.id).save
+Category.new(name: 'Cama Box', parent_id: @parent_category.id).save
+Category.new(name: 'Sofá', parent_id: @parent_category.id).save
+Category.new(name: 'Rack, Estante e Painel', parent_id: @parent_category.id).save
+Category.new(name: 'Guarda-Roupa e Roupeiro', parent_id: @parent_category.id).save
+Category.new(name: 'Estante e Livreiro', parent_id: @parent_category.id).save
+Category.new(name: 'Sala de Jantar', parent_id: @parent_category.id).save
+Category.new(name: 'Cadeira de Escritório', parent_id: @parent_category.id).save
+Category.new(name: 'Cozinha Modulada', parent_id: @parent_category.id).save
+Category.new(name: 'Bar', parent_id: @parent_category.id).save
+Category.new(name: 'Cama Box Conjugado', parent_id: @parent_category.id).save
+Category.new(name: 'Cômoda', parent_id: @parent_category.id).save
+Category.new(name: 'Móveis Para Comércio', parent_id: @parent_category.id).save
+Category.new(name: 'Luminária', parent_id: @parent_category.id).save
+Category.new(name: 'Mesas Para Notebook', parent_id: @parent_category.id).save
 
-@parent_category = Category.new(text: 'Viagens', parent_id: nil)
+@parent_category = Category.new(name: 'Viagens', parent_id: nil)
 @parent_category.save
 
-Category.new(text: 'Passagens Aéreas', parent_id: @parent_category.id).save
-Category.new(text: 'Hotéis', parent_id: @parent_category.id).save
-Category.new(text: 'Pacotes Turísticos', parent_id: @parent_category.id).save
-Category.new(text: 'Cruzeiros Marítimos', parent_id: @parent_category.id).save
-Category.new(text: 'Seguros', parent_id: @parent_category.id).save
-Category.new(text: 'Atrações', parent_id: @parent_category.id).save
-Category.new(text: 'Resorts', parent_id: @parent_category.id).save
-Category.new(text: 'Praias', parent_id: @parent_category.id).save
-Category.new(text: 'Feriados', parent_id: @parent_category.id).save
+Category.new(name: 'Passagens Aéreas', parent_id: @parent_category.id).save
+Category.new(name: 'Hotéis', parent_id: @parent_category.id).save
+Category.new(name: 'Pacotes Turísticos', parent_id: @parent_category.id).save
+Category.new(name: 'Cruzeiros Marítimos', parent_id: @parent_category.id).save
+Category.new(name: 'Seguros', parent_id: @parent_category.id).save
+Category.new(name: 'Atrações', parent_id: @parent_category.id).save
+Category.new(name: 'Resorts', parent_id: @parent_category.id).save
+Category.new(name: 'Praias', parent_id: @parent_category.id).save
+Category.new(name: 'Feriados', parent_id: @parent_category.id).save
