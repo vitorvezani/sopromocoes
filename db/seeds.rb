@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'faker'
-
 case Rails.env
 when "development"
 	user = User.new
