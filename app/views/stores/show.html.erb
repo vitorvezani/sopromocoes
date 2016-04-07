@@ -1,13 +1,13 @@
-<div class="page-header">
-  <%= link_to stores_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_store_path(@store), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show store</h1>
+<div class="row page-header">
+  <div class="col-md-6">
+    <h3><%= @store.name.titleize %></h3>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <%= render 'shared/security/edit', path: edit_store_path(@store) if is_admin? %>
+      <%= render 'shared/security/delete', item: @store if is_admin? %>
+    </div>
+  </div>
 </div>
 
 <dl class="dl-horizontal">

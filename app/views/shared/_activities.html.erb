@@ -1,5 +1,10 @@
+<h3>Últimas atividades</h3>
 <div class="col-md-12">
   <div class="row">
     <%= render_activities @activities %>
+  </div>
+
+  <div class="col-md-9 col-md-offset-4">
+  <%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

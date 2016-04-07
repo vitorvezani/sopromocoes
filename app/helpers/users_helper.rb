@@ -1,10 +1,6 @@
 module UsersHelper
-  def same_user(user, other_user)
-    return false if user.nil? or other_user.nil?
-    user.id.to_s == other_user.id.to_s
-  end
 
-  def same_user(other_user)
+  def is_logged_user(other_user)
     return false if other_user.nil? or current_user.nil?
     current_user.id.to_s == other_user.id.to_s
   end

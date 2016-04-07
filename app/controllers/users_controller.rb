@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     end
 
     def load_activities
-      @activities = PublicActivity::Activity.where(owner_id: @user.id, owner_type: "User").order('created_at DESC').limit(20)
+      @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner_id: @user.id, owner_type: "User").paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     end
 
     # Must be executed after UserController.set_user

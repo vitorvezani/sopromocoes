@@ -24,3 +24,5 @@ A ideia do Só Promocoes é ser uma rede social de promocoes e cupons onde o usu
 # TODO
 - Validations
 - Impressionist
+- editar comentários
+- arrumar os icones por ajax

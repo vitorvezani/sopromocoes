@@ -1,6 +1,4 @@
-<% if owns_record(item) or is_admin? %>
-  <%= link_to item, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger' do %>
-    <span class="glyphicon glyphicon-remove"></span>
-    Excluir
-  <% end %>
+<%= link_to item, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger' do %>
+  <span class="glyphicon glyphicon-remove"></span>
+  Excluir
 <% end %>

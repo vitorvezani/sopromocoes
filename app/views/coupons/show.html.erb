@@ -5,8 +5,8 @@
   </div>
   <div class="col-md-6">
     <div class="pull-right">
-      <%= render 'shared/security/edit', item: @coupon, path: edit_coupon_path(@coupon) %>
-      <%= render 'shared/security/delete', item: @coupon %>
+      <%= render 'shared/security/edit', path: edit_coupon_path(@coupon) if owns_record(@coupon) or is_admin? %>
+      <%= render 'shared/security/delete', item: @coupon if owns_record(@coupon) or is_admin? %>
     </div>
   </div>
 </div>

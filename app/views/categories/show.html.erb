@@ -1,13 +1,13 @@
-<div class="page-header">
-  <%= link_to categories_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <%= link_to edit_category_path(@category), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show category</h1>
+<div class="row page-header">
+  <div class="col-md-6">
+    <h3><%= @category.name.titleize %></h3>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <%= render 'shared/security/edit', path: edit_category_path(@category) if is_admin? %>
+      <%= render 'shared/security/delete', item: @category if is_admin? %>
+    </div>
+  </div>
 </div>
 
 <dl class="dl-horizontal">

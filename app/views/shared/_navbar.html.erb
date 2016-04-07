@@ -46,7 +46,11 @@
                 <% end %>
                 <li role="separator" class="divider"></li>
                 <!-- <li class="dropdown-header">Nav header</li> -->
-                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <!-- <i class="fa fa-power-off"></i> --> Sair
+                  <% end %>
+                </li>
               </ul>
             </li>
           <% else %>
