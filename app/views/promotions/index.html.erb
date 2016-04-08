@@ -1,7 +1,9 @@
 <div class="page-header">
-  <%= link_to new_promotion_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    Nova Oferta
+  <% if user_signed_in? %>
+    <%= link_to new_promotion_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      Nova Oferta
+    <% end %>
   <% end %>
   <h1>Todas as ofertas</h1>
 </div>

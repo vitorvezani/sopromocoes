@@ -1,7 +1,9 @@
 <div class="page-header">
-  <%= link_to new_coupon_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    Novo Cupom
+  <% if user_signed_in? %>
+    <%= link_to new_coupon_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      Novo Cupom
+    <% end %>
   <% end %>
   <h1>Todos os Cupons</h1>
 </div>

@@ -1,0 +1,22 @@
+<% if is_logged_user_other_user(@user) or is_admin %>
+  <div class="btn-group dropup btn-block">
+    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Configurações </button>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu text-left" role="menu">
+      <li><a href="mailto:" <%= @user.email %>><span class="fa fa-envelope pull-right"></span> Enviar email </a></li>
+      <li><a href="#" class="not-active"><span class="fa fa-list pull-right"></span> Adicionar ou remover da lista </a></li>
+      <li>
+        <%= link_to edit_user_registration_path(@user) do %>
+          <span class="fa fa-pencil pull-right"></span>Editar
+        <% end %>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="btn disabled" role="button"> Unfollow </a></li>
+    </ul>
+  </div>
+<% end %>
