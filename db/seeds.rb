@@ -11,7 +11,7 @@ when "development"
 	user = User.new
 
 	user.email = "vitor.vezani@gmail.com"
-	user.email = "vitor_vezani"
+	user.username = "vitor_vezani"
 	user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
 	#user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
 	user.reset_password_token = nil
@@ -36,7 +36,7 @@ when "production"
 	user = User.new
 
 	user.email = "clubedasofertas@clubedasofertas.com.br"
-	user.email = "clube_das_ofertas"
+	user.username = "clube_das_ofertas"
 	user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
 	#user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
 	user.reset_password_token = nil

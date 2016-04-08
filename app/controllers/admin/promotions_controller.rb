@@ -14,9 +14,7 @@ class Admin::PromotionsController < AdminController
       return
     end
 
-    user = User.find_by_email("clubedasofertas@clubedasofertas.com.br")
-
-    xls_service = XlsFileReaderService.new(xls_file, affiliate, user)
+    xls_service = XlsFileReaderService.new(xls_file, affiliate, current_user)
 
     begin
      xls_service.read!
