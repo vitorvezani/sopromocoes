@@ -46,3 +46,10 @@ $.rails.showConfirmDialog = function(element){
         }
     })
 };
+
+// Utils
+function changeClass(element, newClass, classToRemove) {
+  console.log(element + ";" + newClass + ";" + classToRemove)
+  element.addClass(newClass);
+  element.removeClass(classToRemove);
+}

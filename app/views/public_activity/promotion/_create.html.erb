@@ -3,8 +3,8 @@
   <small class="text-muted"><%= a.created_at.to_s(:hours_date) %></small><br/>
   <strong><%= activity.owner ? activity.owner.name_or_username : 'Guest' %></strong>
   <% if a.trackable %>
-    adicionou a promoção <%= link_to a.trackable.name.truncate(35), a.trackable %>.
+    adicionou a oferta <%= link_to a.trackable.name.truncate(35), a.trackable %>.
   <% else %>
-    adicionou uma promoção que foi deletado.
+    adicionou uma oferta que foi deletado.
   <% end %>
 </li>

@@ -1,11 +1,17 @@
-<div class="page-header">
+<div class="row page-header">
+  <div class="col-md-6">
+    <h1>Todos os cupons</h1>
+  </div>
   <% if user_signed_in? %>
-    <%= link_to new_coupon_path, class: 'btn btn-primary' do %>
-      <span class="glyphicon glyphicon-plus"></span>
-      Novo Cupom
-    <% end %>
+    <div class="col-md-6">
+      <div class="pull-right">
+        <%= link_to new_coupon_path, class: 'btn btn-primary' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Novo Cupom
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  <h1>Todos os Cupons</h1>
 </div>
 
 <% @coupons.each_slice(3) do |three_coupons| %>

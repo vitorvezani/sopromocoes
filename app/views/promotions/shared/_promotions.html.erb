@@ -5,7 +5,7 @@
         <li class="list-group-item">
           <span class="glyphicon glyphicon-plus"></span>
           <small class="text-muted"><%= promo.created_at.to_s(:hours_date) %></small><br/>
-          Criou a promoção <%= link_to promo.name, promo %>, o produto está por <%= promo.price_to.to_s %><%= promo.discount.present? ? '. Total de ' + promo.discount.to_s + '%' + ' de desconto' : '' %>
+          Criou a oferta <%= link_to promo.name, promo %>, o produto está por <%= promo.price_to.to_s %><%= promo.discount.present? ? '. Total de ' + promo.discount.to_s + '%' + ' de desconto' : '' %>
         </li>
       </div>
     <% end %>

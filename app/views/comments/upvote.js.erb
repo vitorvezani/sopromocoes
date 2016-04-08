@@ -1,18 +1,13 @@
-function changeClass(element, newClass, classToRemove) {
-  element.addClass(newClass);
-  element.removeClass(classToRemove);
-}
-
 <% if @error.present? %>
   alertify.error("<%= @error %>");
 <% else %>
-<% if @is_upvote %>
-  element = $("#comment-<%= @comment.id %>").find('.fa-thumbs-o-up');
-  changeClass(element, 'fa-thumbs-up', 'fa-thumbs-o-up');
-<% else %>
-  element = $("#comment-<%= @comment.id %>").find('.fa-thumbs-up');
-  changeClass(element, 'fa-thumbs-o-up', 'fa-thumbs-up');
-<% end %>
+  <% if @is_upvote %>
+    element = $("#comment-<%= @comment.id %>").find('.fa-thumbs-o-up');
+    changeClass(element, 'fa-thumbs-up', 'fa-thumbs-o-up');
+  <% else %>
+    element = $("#comment-<%= @comment.id %>").find('.fa-thumbs-up');
+    changeClass(element, 'fa-thumbs-o-up', 'fa-thumbs-up');
+  <% end %>
   $("#comment-<%= @comment.id %>").find('.like').text("<%= @comment.get_upvotes.size %>");
   alertify.success("<%= @success %>");
 <% end %>

@@ -1,7 +1,7 @@
 <div class="statistics">
   <% if user_signed_in? %>
     <%= link_to resource_to_friendly_link(item) + '/love', method: :put, remote: :true, class:"no-anchor-css" do %>
-      <i class="fa fa-heart-o fa-lg fa-clickable"></i>
+      <i class="fa fa-lg fa-clickable <%= love_class(item) %>"></i>
     <% end %>
   <% else %>
     <i class="fa fa-heart-o fa-lg"></i>

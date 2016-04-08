@@ -1,9 +1,17 @@
-<div class="page-header">
-  <%= link_to new_store_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    Nova loja
+<div class="row page-header">
+  <div class="col-md-6">
+    <h1>Todas as lojas</h1>
+  </div>
+  <% if is_admin? %>
+    <div class="col-md-6">
+      <div class="pull-right">
+        <%= link_to new_store_path, class: 'btn btn-primary' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Nova loja
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  <h1>Listando as lojas</h1>
 </div>
 
 <% @stores.each_slice(3) do |three_stores| %>

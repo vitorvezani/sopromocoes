@@ -5,10 +5,10 @@ A ideia do Só Promocoes é ser uma rede social de promocoes e cupons onde o usu
 ## Funcionalidades
 - Administradores
   - Importação de planilha de promocoes e cupons do sistema de afiliados Lomadee e Afiliados.
-  - Management de usuários, promoções, cupons e lojas
+  - Management de usuários, ofertas, cupons e lojas
 - Usuários
   - Cadastro de promocoes, cupons, tags e lojas(?)
-  - Management de promoções e cupons cadastrados por eles
+  - Management de ofertas e cupons cadastrados por eles
   - Comentários em itens (comentable)
   - Report de spam (reportable)
 - Featues do sistema

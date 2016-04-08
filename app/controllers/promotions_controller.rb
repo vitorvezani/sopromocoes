@@ -86,11 +86,11 @@ class PromotionsController < ApplicationController
 
     unless current_user.voted_for? @promotion
       @promotion.liked_by current_user
-      @success = 'Promoção curtida com sucesso!'
+      @success = 'Oferta curtida com sucesso!'
       @is_upvote = true
     else
       @promotion.unliked_by current_user
-      @success = 'Promoção descurtida com sucesso!'
+      @success = 'Oferta descurtida com sucesso!'
     end
 
     respond_to do |format|
