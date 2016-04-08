@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def name_or_username
+    name or username
+  end
+
 end

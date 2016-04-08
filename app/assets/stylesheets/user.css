@@ -112,3 +112,7 @@ span.tags
     padding: 5px 10px 5px 10px;
     border-radius: 27px;
 }
+
+.tab-pane.fade {
+  margin-bottom: 5px;
+}

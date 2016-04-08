@@ -10,7 +10,7 @@
     <div class="coupon-code">
       <h5>Código: '<b><%= coupon.code %></b>'</h5>
       <div class="exp"><%= coupon.end_at.to_s(:expire) %></div>
-      <p>Enviado por <%= link_to coupon.user.name.titleize, coupon.user %></p>
+      <p>Enviado por <%= link_to coupon.user.name_or_username.titleize, coupon.user %></p>
       <%= render 'shared/statistics', item: coupon %>
     </div>
     <a href=<%= coupon.url %> role="button" class="btn btn-success center-block">Aplicar Cupom!</a>

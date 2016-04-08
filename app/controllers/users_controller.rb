@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   add_breadcrumb "Usuários", :users_path
 
   before_action :set_user, :add_breadcrumb_user, only: [:show, :edit, :update, :destroy]
-  before_action :load_activities, only: [:show]
+  before_action :load_activities, :load_promotions, :load_coupons, only: [:show]
 
   # GET /users
   # GET /users.json
@@ -76,11 +76,19 @@ class UsersController < ApplicationController
     end
 
     def load_activities
-      @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner_id: @user.id, owner_type: "User").paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+      @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner_id: @user.id, owner_type: "User").paginate(page: params[:activities], per_page: 6).order(created_at: :desc)
+    end
+
+    def load_promotions
+      @promotions = Promotion.where(user_id: @user.id).paginate(page: params[:promotions], per_page: 6).order(created_at: :desc)
+    end
+
+    def load_coupons
+      @coupons = Coupon.where(user_id: @user.id).paginate(page: params[:coupons], per_page: 6).order(created_at: :desc)
     end
 
     # Must be executed after UserController.set_user
     def add_breadcrumb_user
-      add_breadcrumb @user.name.truncate(45)
+      add_breadcrumb @user.name_or_username.truncate(45)
     end
 end

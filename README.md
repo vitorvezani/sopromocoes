@@ -26,3 +26,11 @@ A ideia do Só Promocoes é ser uma rede social de promocoes e cupons onde o usu
 - Impressionist
 - editar comentários
 - arrumar os icones por ajax
+- fixed footer
+- Popovers to help user (bootstrap)
+- Collapse to show more options
+- Know someone who can answer? Share a link to this question via email, Google+, Twitter, or Facebook.
+
+
+# To Remember
+pluralize palavras.size, 'palavra' => 'palavras'

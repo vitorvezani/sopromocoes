@@ -60,6 +60,9 @@ gem 'friendly_id', '~> 5.1.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Your Rails variables in your JS -> https://github.com/gazay/gon
+# gem 'gon'
+
 # Deploying a Ruby app on a Heroku production server
 gem "passenger"
 

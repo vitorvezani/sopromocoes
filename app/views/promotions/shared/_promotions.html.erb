@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <% if @promotions.any? %>
+    <% @promotions.each do |promo| %>
+      <div class="row">
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-plus"></span>
+          <small class="text-muted"><%= promo.created_at.to_s(:hours_date) %></small><br/>
+          Criou a promoção <%= link_to promo.name, promo %>, o produto está por <%= promo.price_to.to_s %><%= promo.discount.present? ? '. Total de ' + promo.discount.to_s + '%' + ' de desconto' : '' %>
+        </li>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="well well-lg"><p><strong><%= @user.name_or_username %></strong> ainda não possui promoçoes cadastradas. </p></div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-9 col-md-offset-4">
+      <%= will_paginate @promotions, renderer: BootstrapPagination::Rails, param_name: 'promotions' %>
+    </div>
+  </div>
+</div>

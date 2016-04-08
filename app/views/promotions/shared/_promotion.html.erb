@@ -19,7 +19,7 @@
   <div class="panel-footer">
     <div class="promotion-code">
         <h5><b>De <%= number_to_currency(promotion.price_from) %> por <%= number_to_currency(promotion.price_to) %></b></h5>
-        <p>Enviado por <%= link_to promotion.user.name.titleize, promotion.user %></p>
+        <p>Enviado por <%= link_to promotion.user.name_or_username.titleize, promotion.user %></p>
         <%= render 'shared/statistics', item: promotion %>
     </div>
     <% if promotion.end_at? %>

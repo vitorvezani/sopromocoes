@@ -1,7 +1,7 @@
 <li class="list-group-item">
   <span class="glyphicon glyphicon-plus"></span>
   <small class="text-muted"><%= a.created_at.to_s(:hours_date) %></small><br/>
-  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  <strong><%= activity.owner ? activity.owner.name_or_username : 'Guest' %></strong>
   <% if a.trackable %>
     adicionou o cupom <%= link_to a.trackable.name.truncate(35), a.trackable %>.
   <% else %>

@@ -2,7 +2,7 @@
   <div class="col-md-2 col-sm-2 hidden-xs">
     <figure class="thumbnail">
       <img class="img-responsive" src=<%= comment.user.image_url %> />
-      <figcaption class="text-center"><%= link_to (comment.user.name or comment.user.email), user_path(comment.user) %></figcaption>
+      <figcaption class="text-center"><%= link_to comment.user.name_or_username, user_path(comment.user) %></figcaption>
     </figure>
   </div>
   <div class="col-md-10 col-sm-10">

@@ -9,7 +9,7 @@ class Coupon < ActiveRecord::Base
 
   is_impressionable counter_cache: true, unique: [:impressionable_type, :impressionable_id, :session_hash]
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 	belongs_to :store
 
   friendly_id :slug_candidates, use: :slugged

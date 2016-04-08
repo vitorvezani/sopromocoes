@@ -20,7 +20,7 @@
       </div>
       <div class="col-sm-12">
         <div class="col-xs-12">
-          <h2><%= @user.name %></h2>
+          <h2><%= @user.name_or_username %></h2>
           <p><strong>Sobre: </strong> Web Designer / UI. </p>
           <p><strong>Email: </strong> <%= @user.email %></p>
           <p><strong>Tags: </strong>
@@ -67,11 +67,22 @@
       </div>
     </div>
   </div>
-  <div>
-    <!-- O RESTO -->
+  <div class="col-md-8">
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#activities" id="activities-tab" role="tab" data-toggle="tab" aria-controls="activities" aria-expanded="false">Atividades <span class="badge"><%= @activities.count %></span></a></li>
+      <li role="presentation" ><a href="#promotions" role="tab" id="promotions-tab" data-toggle="tab" aria-controls="promotions" aria-expanded="true">Promoções <span class="badge"><%= @promotions.count %></span></a></li>
+      <li role="presentation" ><a href="#coupons" role="tab" id="coupons-tab" data-toggle="tab" aria-controls="coupons" aria-expanded="true">Cupons <span class="badge"><%= @coupons.count %></span></a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade active in" id="activities" aria-labelledby="activities-tab">
+        <%= render 'shared/activities' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="promotions" aria-labelledby="promotions-tab">
+        <%= render 'promotions/shared/promotions' %>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="coupons" aria-labelledby="coupons-tab">
+        <%= render 'coupons/shared/coupons' %>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="row">
-  <%= render 'shared/activities' %>
 </div>

@@ -1,10 +1,15 @@
-<h3>Últimas atividades</h3>
 <div class="col-md-12">
-  <div class="row">
-    <%= render_activities @activities %>
-  </div>
+  <% if @activities.any? %>
+    <div class="row">
+      <%= render_activities @activities %>
+    </div>
+  <% else %>
+    <div class="well well-lg"><p><strong><%= @user.name_or_username %></strong> ainda não possui atividades cadastradas. </p></div>
+  <% end %>
 
-  <div class="col-md-9 col-md-offset-4">
-  <%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
+  <div class="row">
+    <div class="col-md-12 col-centered">
+      <%= will_paginate @activities, renderer: BootstrapPagination::Rails, param_name: 'activities' %>
+    </div>
   </div>
 </div>

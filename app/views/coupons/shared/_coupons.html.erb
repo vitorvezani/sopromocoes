@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <% if @coupons.any? %>
+    <% @coupons.each do |coupon| %>
+      <div class="row">
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-plus"></span>
+          <small class="text-muted"><%= coupon.created_at.to_s(:hours_date) %></small><br/>
+          Criou o cupom <%= link_to coupon.name, coupon %>
+        </li>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="well well-lg"><p><strong><%= @user.name_or_username %></strong> ainda não possui cupons cadastrados. </p></div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-12 col-centered">
+      <%= will_paginate @coupons, renderer: BootstrapPagination::Rails, param_name: 'coupons' %>
+    </div>
+  </div>
+</div>

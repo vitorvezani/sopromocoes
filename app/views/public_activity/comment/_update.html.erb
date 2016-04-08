@@ -1,7 +1,7 @@
 <li class="list-group-item">
   <span class="glyphicon glyphicon-edit"></span>
   <small class="text-muted"><%= a.created_at.to_s(:hours_date) %></small><br/>
-  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  <strong><%= activity.owner ? activity.owner.name_or_username : 'Guest' %></strong>
   <% if a.trackable %>
     editou um comentário em <%= link_to a.trackable.title, resource_to_friendly_link(a.trackable.commentable) %>.
   <% else %>

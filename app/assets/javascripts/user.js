@@ -11,4 +11,8 @@ $(function() {
     username = removerCaracteresEspeciais(username);
     $(this).val(username.toLowerCase());
   });
+
+  // $('.nav-tabs a:eq('+ gon.tab +')').tab('show').addClass('active');
+  // $('#myTabs a[href="#profile"]').tab('show') // Select tab by name
+
 });
