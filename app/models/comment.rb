@@ -9,17 +9,14 @@ class Comment < ActiveRecord::Base
     end
   }
 
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true
 
-  default_scope -> { order('created_at ASC') }
+  default_scope -> { order(created_at: :desc) }
 
   acts_as_votable
 
-  # NOTE: Comments belong to a user
   belongs_to :user
 
-
-  #validates :title, presence: true
-  #validates :body, presence: true
+  validates :title, :comment, presence: true
 
 end

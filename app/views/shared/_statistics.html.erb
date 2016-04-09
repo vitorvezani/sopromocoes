@@ -10,7 +10,7 @@
 
   <%= link_to resource_to_friendly_link(item) + '#comments', class:"no-anchor-css" do %>
     <i class="fa fa-comments-o fa-lg fa-clickable"></i>
-  <% end %> <span><%= item.comments.count %></span> -
+  <% end %> <span><%= item.comments_count %></span> -
 
   <i class="fa fa-eye fa-lg"></i> <span><%= item.impressions_count %></span>
 

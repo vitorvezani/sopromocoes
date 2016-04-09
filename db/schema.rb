@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407235940) do
+ActiveRecord::Schema.define(version: 20160409145739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160407235940) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.string   "slug"
+    t.integer  "comments_count",          default: 0
   end
 
   add_index "coupons", ["cached_votes_down"], name: "index_coupons_on_cached_votes_down", using: :btree
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160407235940) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.string   "slug"
+    t.integer  "comments_count",          default: 0
   end
 
   add_index "promotions", ["cached_votes_down"], name: "index_promotions_on_cached_votes_down", using: :btree
@@ -172,15 +174,16 @@ ActiveRecord::Schema.define(version: 20160407235940) do
   add_index "promotions", ["user_id"], name: "index_promotions_on_user_id", using: :btree
 
   create_table "stores", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",                       null: false
     t.text     "description"
     t.string   "twitter"
     t.text     "logo_url"
     t.text     "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "color"
     t.string   "slug"
+    t.integer  "comments_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|
