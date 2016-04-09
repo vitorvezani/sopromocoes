@@ -14,10 +14,10 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html do
-        top_products = Promotion.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day)
-        top_coupons = Coupon.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day)
+        top_products = Promotion.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day).limit(15)
+        top_coupons = Coupon.includes(:store, :user).where("created_at >= ?", Time.zone.now.beginning_of_day).limit(15)
         unsorted_tops = (top_products | top_coupons)
-        @tops = unsorted_tops.sort_by { |k| k[:impressions_count] }
+        @tops = unsorted_tops.sort_by { |k| k[:impressions_count] }.reverse
       end
     end
   end

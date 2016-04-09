@@ -3,7 +3,11 @@ class Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
 
   include PublicActivity::Model
-  tracked owner: Proc.new { |controller, model| controller.default_current_user ? controller.default_current_user : nil }
+  tracked owner: Proc.new { |controller, model|
+    if not controller.nil?
+      controller.default_current_user ? controller.default_current_user : nil
+    end
+  }
 
   belongs_to :commentable, polymorphic: true
 
