@@ -9,5 +9,6 @@
     changeClass(element, 'fa-heart-o', 'fa-heart');
   <% end %>
   $(".coupon#<%= @coupon.id %>").find('.loves').text("<%= @coupon.get_upvotes.size %>");
+  console.log('<%= @success %>')
   alertify.success("<%= @success %>");
 <% end %>

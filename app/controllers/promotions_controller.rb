@@ -44,6 +44,12 @@ class PromotionsController < ApplicationController
   # POST /promotions
   # POST /promotions.json
   def create
+
+    #begin_at
+    #enabled
+    #discount
+    #external_id
+
     @promotion = Promotion.new(promotion_params)
     @promotion.user = current_user
 

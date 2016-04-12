@@ -9,5 +9,6 @@
     changeClass(element, 'fa-thumbs-o-up', 'fa-thumbs-up');
   <% end %>
   $("#comment-<%= @comment.id %>").find('.like').text("<%= @comment.get_upvotes.size %>");
+  console.log('<%= @success %>')
   alertify.success("<%= @success %>");
 <% end %>

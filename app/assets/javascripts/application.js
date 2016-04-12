@@ -13,10 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require angular
-//= require ngInfiniteScroll
 //= require sweetalert
 //= require alertifyjs
+//= require bootstrap-datepicker
 //= require_tree .
 
 alertify.logPosition("top right");
@@ -47,9 +46,11 @@ $.rails.showConfirmDialog = function(element){
     })
 };
 
+// Datepicker Bootstrap
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+
 // Utils
 function changeClass(element, newClass, classToRemove) {
-  console.log(element + ";" + newClass + ";" + classToRemove)
   element.addClass(newClass);
   element.removeClass(classToRemove);
 }

@@ -67,3 +67,11 @@ a.no-anchor-css, a:hover.no-anchor-css, a:visited.no-anchor-css {
 .page-header h1, h2, h3 {
   margin-top: 0px;
 }
+
+.datepicker {
+  background-color: #F5F5F5!important;
+}
+
+hr {
+  border-top: 1px solid #D2D2D2;
+}

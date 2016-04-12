@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks -> https://github.com/kossnocorp/jquery.turbolinks
+# gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -35,10 +37,9 @@ gem 'rails_12factor'
 #-- Rails Assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
-  gem 'rails-assets-angular'
-  gem 'rails-assets-ngInfiniteScroll'
   gem 'rails-assets-sweetalert'
   gem 'rails-assets-alertifyjs' # https://alertifyjs.org/#
+  gem 'rails-assets-bootstrap-datepicker'
 end
 
 # Fontawesome - https://github.com/bokmann/font-awesome-rails

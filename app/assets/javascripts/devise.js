@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   $("#signin-form").submit(function (e) {
     var accepted = $('#terms-and-conditions').prop('checked');
     if(!accepted){

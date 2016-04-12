@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function() {
     $('#characterLeft').text('140 caracteres faltantes.');
     $('#message').keydown(function () {
         var max = 140;

@@ -5,7 +5,7 @@
           <div class="col-md-8 col-md-offset-2">
             <% if user_signed_in? %>
               <div class="form-area">
-                <%= form_for(new_comment, remote: true) do |f| %>
+                <%= form_for(new_comment, remote: :true) do |f| %>
                   <br style="clear:both">
                   <%= f.hidden_field :commentable_id %>
                   <%= f.hidden_field :commentable_type %>
