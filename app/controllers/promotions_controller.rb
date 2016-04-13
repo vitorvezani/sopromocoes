@@ -45,16 +45,20 @@ class PromotionsController < ApplicationController
   # POST /promotions.json
   def create
 
-    #begin_at
-    #enabled
-    #discount
-    #external_id
-
     @promotion = Promotion.new(promotion_params)
     @promotion.user = current_user
+    @promotion.affiliate = 'LOMADEE'
+    @promotion.begin_at = DateTime.now
+    @promotion.enabled = true
+    @promotion.discount = CalculatorService.calculate_discount(@promotion)
 
     respond_to do |format|
       if @promotion.save
+
+        @promotion.image_url = ImageService.save(@promotion)
+
+        @promotion.save
+
         format.html { redirect_to @promotion, notice: 'Oferta foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @promotion }
       else

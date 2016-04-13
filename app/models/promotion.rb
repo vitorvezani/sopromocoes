@@ -20,6 +20,7 @@ class Promotion < ActiveRecord::Base
 
   #validates :title, presence: true
   #validates :body, presence: true
+  # validar price_from < price_to
 
   def slug_candidates
     [

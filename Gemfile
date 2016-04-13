@@ -34,6 +34,10 @@ gem 'rails-i18n', '~> 4.0.0'
 # https://devcenter.heroku.com/articles/rails-integration-gems
 gem 'rails_12factor'
 
+# Image upload
+gem 'carrierwave'
+gem 'cloudinary'
+
 #-- Rails Assets
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
