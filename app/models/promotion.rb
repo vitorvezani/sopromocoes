@@ -16,11 +16,10 @@ class Promotion < ActiveRecord::Base
 	belongs_to :user, counter_cache: true
 	belongs_to :store
 
-  friendly_id :slug_candidates, use: :slugged
+  validates :name, :description, :store, presence: true
+  #validar price_from < price_to
 
-  #validates :title, presence: true
-  #validates :body, presence: true
-  # validar price_from < price_to
+  friendly_id :slug_candidates, use: :slugged
 
   def slug_candidates
     [

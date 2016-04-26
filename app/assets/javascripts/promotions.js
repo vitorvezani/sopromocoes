@@ -1,7 +1,5 @@
 $(function() {
 
-  imgLoaded = false;
-
   $('#img-url').blur(function() {
     //create image to preload:
     var imgPreload = new Image();
@@ -12,21 +10,23 @@ $(function() {
     });
 
     //check if the image is already loaded (cached):
-    if ((imgPreload.complete || imgPreload.readyState === 4) && !imgLoaded) {
-      $('#load-img-here').append($(this));
-      imgLoaded = true;
+    if ((imgPreload.complete || imgPreload.readyState === 4) ) {
+      $('#load-img-here').html(imgPreload);
     } else {
-        //go fetch the image:
-      if(!imgLoaded){
-        $(imgPreload).load(function (response, status, xhr) {
-          if (status == 'error') {
-          console.log('imagem não encontrada');
-          } else {
-            $('#load-img-here').append($(this));
-            imgLoaded = true;
-          }
-        });
-      }
+      //go fetch the image:
+      $(imgPreload).load(function (response, status, xhr) {
+        if (status == 'error') {
+            var notFound = new Image();
+            $(notFound).attr({
+                src: "http://www.netocar.com.br/includes/tng/styles/img_not_found.gif",
+                width: 350,
+                height: 350,
+            });
+          $('#load-img-here').html(notFound);
+        } else {
+          $('#load-img-here').html(imgPreload);
+        }
+      });
     }
   });
 });

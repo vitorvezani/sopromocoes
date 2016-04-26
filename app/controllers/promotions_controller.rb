@@ -50,7 +50,7 @@ class PromotionsController < ApplicationController
     @promotion.affiliate = 'LOMADEE'
     @promotion.begin_at = DateTime.now
     @promotion.enabled = true
-    @promotion.discount = CalculatorService.calculate_discount(@promotion)
+    #@promotion.discount = CalculatorService.calculate_discount(@promotion)
 
     respond_to do |format|
       if @promotion.save
