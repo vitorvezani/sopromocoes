@@ -14,19 +14,19 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label 'Título', class: "col-sm-3 control-label" %>
+        <%= f.label 'Título', class: "col-sm-3 control-label", title: "Título da oferta", data: { toggle: "tooltip", placement: "below" } %>
         <div class="col-sm-9">
           <%= f.text_field :name, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Descrição', class: "col-sm-3 control-label" %>
+        <%= f.label 'Descrição', class: "col-sm-3 control-label", title: "Descrição da oferta", data: { toggle: "tooltip", placement: "below" } %>
         <div class="col-sm-9">
-          <%= f.text_area :description, class: "form-control" %>
+          <%= f.text_area :description, rows: 3, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :image_url, class: "col-sm-3 control-label" %>
+        <%= f.label "URL imagem", class: "col-sm-3 control-label", title: "Foto do produto", data: { toggle: "tooltip", placement: "below" } %>
         <div class="col-sm-9">
           <%= f.text_area :image_url, class: "form-control", id: "img-url" %>
         </div>
@@ -40,31 +40,25 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label 'Preço', class: "col-sm-3 control-label" %>
+        <%= f.label 'Preço', class: "col-sm-3 control-label", title: "Preço do produto em ofeta", data: { toggle: "tooltip", placement: "below" } %>
         <div class="col-sm-9">
           <%= f.text_field :price_to, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Preço de', class: "col-sm-3 control-label" %>
+        <%= f.label 'Preço de', class: "col-sm-3 control-label", title: "Preço normal do produto", data: { toggle: "tooltip", placement: "below" } %>
         <div class="col-sm-9">
           <%= f.text_field :price_from, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Preço boleto', class: "col-sm-3 control-label" %>
-        <div class="col-sm-9">
-          <%= f.text_field :price_billet, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label 'Link', class: "col-sm-3 control-label" %>
+        <%= f.label 'Link', class: "col-sm-3 control-label", title: "URL da oferta", data: { toggle: "tooltip", placement: "below" }  %>
         <div class="col-sm-9">
           <%= f.text_area :url, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Termina em', class: "col-sm-3 control-label" %>
+        <%= f.label 'Termina em', class: "col-sm-3 control-label", title: "Dia do término da oferta", data: { toggle: "tooltip", placement: "below" }  %>
         <div class="col-sm-9">
           <%= f.text_field :end_at, class: "form-control", data: { provide: 'datepicker' } %>
         </div>

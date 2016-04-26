@@ -6,6 +6,13 @@
         <span class="visible-xs"><%= link_to coupon.name.titleize.truncate(115), coupon %></span>
     </div>
   </div>
+  <% if coupon.description %>
+    <div class="panel-body">
+      <div class="col-md-9">
+        <p><%= coupon.description %></p>
+      </div>
+    </div>
+  <% end %>
   <div class="panel-footer">
     <div class="coupon-code">
       <h5>Código: '<b><%= coupon.code %></b>'</h5>

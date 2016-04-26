@@ -1,23 +1,16 @@
 class UsersController < ApplicationController
+
+  PER_PAGE = 12
+
   add_breadcrumb "Usuários", :users_path
 
   before_action :set_user, :add_breadcrumb_user, only: [:show, :edit, :update, :destroy]
   before_action :load_activities, :load_promotions, :load_coupons, only: [:show]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
-  end
-
-  # GET /users/new
-  def new
-    @user = User.new
+    @current_selection = params[:current_selection] or "activities"
   end
 
   # GET /users/1/edit
@@ -76,15 +69,15 @@ class UsersController < ApplicationController
     end
 
     def load_activities
-      @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner_id: @user.id, owner_type: "User").paginate(page: params[:activities], per_page: 6).order(created_at: :desc)
+      @activities = PublicActivity::Activity.includes(:owner, :trackable).where(owner_id: @user.id, owner_type: "User").paginate(page: params[:activities], per_page: PER_PAGE).order(created_at: :desc)
     end
 
     def load_promotions
-      @promotions = Promotion.where(user_id: @user.id).paginate(page: params[:promotions], per_page: 6).order(created_at: :desc)
+      @promotions = Promotion.where(user_id: @user.id, enabled: true).includes(:user).paginate(page: params[:promotions], per_page: PER_PAGE).order(created_at: :desc)
     end
 
     def load_coupons
-      @coupons = Coupon.where(user_id: @user.id).paginate(page: params[:coupons], per_page: 6).order(created_at: :desc)
+      @coupons = Coupon.where(user_id: @user.id, enabled: true).includes(:user).paginate(page: params[:coupons], per_page: PER_PAGE).order(created_at: :desc)
     end
 
     # Must be executed after UserController.set_user

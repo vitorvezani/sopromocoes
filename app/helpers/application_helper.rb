@@ -30,4 +30,5 @@ module ApplicationHelper
     return 'fa-thumbs-o-up' unless user_signed_in?
     return current_user.voted_for?(item) ? 'fa-thumbs-up' : 'fa-thumbs-o-up'
   end
+
 end

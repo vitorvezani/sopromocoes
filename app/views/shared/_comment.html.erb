@@ -1,7 +1,7 @@
 <article id="comment-<%= comment.id %>" class="row">
   <div class="col-md-2 col-sm-2 hidden-xs">
     <figure class="thumbnail">
-      <img class="img-responsive" src=<%= comment.user.image_url %> />
+      <img class="img-responsive" src=<%= comment.user.image %> />
       <figcaption class="text-center"><%= link_to comment.user.name_or_username, user_path(comment.user) %></figcaption>
     </figure>
   </div>
@@ -10,7 +10,7 @@
       <div class="panel-body">
         <header class="text-left">
           <div class="comment-user"><i class="fa fa-user"></i> <%= comment.title %> </div>
-          <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= comment.created_at.to_s(:hours_date) %></time>
+          <time class="comment-date" datetime="16-12-2014 01:05" data-toggle="tooltip" data-placement="left" title="<%= comment.created_at.to_s(:hours_date) %>"><i class="fa fa-clock-o"></i> Há <%= time_ago_in_words(comment.created_at) %> atrás</time>
         </header>
         <div class="comment-post">
           <p><%= comment.comment %></p>

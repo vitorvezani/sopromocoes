@@ -5,7 +5,8 @@
         <li class="list-group-item">
           <span class="glyphicon glyphicon-plus"></span>
           <small class="text-muted"><%= coupon.created_at.to_s(:hours_date) %></small><br/>
-          Criou o cupom <%= link_to coupon.name, coupon %>
+          <strong><%= coupon.user ? coupon.user.name_or_username : 'Guest' %></strong>
+          criou o cupom <%= link_to coupon.name, coupon %>
         </li>
       </div>
     <% end %>
@@ -14,7 +15,7 @@
   <% end %>
   <div class="row">
     <div class="col-md-12 col-centered">
-      <%= will_paginate @coupons, renderer: BootstrapPagination::Rails, param_name: 'coupons' %>
+      <%= will_paginate @coupons, renderer: BootstrapPagination::Rails, param_name: 'coupons', params: {current_selection: "coupons"} %>
     </div>
   </div>
 </div>

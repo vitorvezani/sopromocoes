@@ -54,3 +54,7 @@ function changeClass(element, newClass, classToRemove) {
   element.addClass(newClass);
   element.removeClass(classToRemove);
 }
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

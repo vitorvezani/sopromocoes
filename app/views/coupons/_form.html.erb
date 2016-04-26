@@ -13,56 +13,44 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <%= f.label "Nome", class: "col-sm-2 control-label", title: "Nome do cupom", data: { toggle: "tooltip", placement: "below" } %>
     <div class="col-sm-10">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :code, class: "col-sm-2 control-label" %>
+    <%= f.label "Descrição", class: "col-sm-2 control-label", title: "Descrição para ativar o cupom", data: { toggle: "tooltip", placement: "below" } %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, rows: 3, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "Código", class: "col-sm-2 control-label", title: "Código do cupom", data: { toggle: "tooltip", placement: "below" } %>
     <div class="col-sm-10">
       <%= f.text_field :code, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :url, class: "col-sm-2 control-label" %>
+    <%= f.label "URL", class: "col-sm-2 control-label", title: "URL da página do cupom", data: { toggle: "tooltip", placement: "below" } %>
     <div class="col-sm-10">
       <%= f.text_area :url, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :begin_at, class: "col-sm-2 control-label" %>
+    <%= f.label 'Termina em', class: "col-sm-2 control-label", title: "Dia do término da validade do cupom", data: { toggle: "tooltip", placement: "below" } %>
     <div class="col-sm-10">
-      <%= f.datetime_select :begin_at, class: "form-control" %>
+      <%= f.text_field :end_at, class: "form-control", data: { provide: 'datepicker' } %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :end_at, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.datetime_select :end_at, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :enabled, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.check_box :enabled, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :rules_url, class: "col-sm-2 control-label" %>
+    <%= f.label "URL das Regras", class: "col-sm-2 control-label", title: "Link das regras do cupom", data: { toggle: "tooltip", placement: "below" } %>
     <div class="col-sm-10">
       <%= f.text_area :rules_url, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :affiliate, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :affiliate, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.collection_select :store_id, Store.all, :id, :name, {prompt: 'Por favor selecione a loja da cupom'}, { class: "form-control" } %>
+      <%= f.collection_select :store_id, Store.all, :id, :name, {prompt: 'Por favor selecione a loja do cupom'}, { class: "form-control" } %>
     </div>
   </div>
   <div class="form-group">

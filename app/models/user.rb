@@ -31,4 +31,20 @@ class User < ActiveRecord::Base
     name or username
   end
 
+  def image
+    image_url or gravatar_url
+  end
+
+  private
+
+    # Gravatar
+    def gravatar_url
+      # include MD5 gem, should be part of standard ruby install
+      require 'digest/md5'
+
+      email_address = self.email.downcase
+      hash = Digest::MD5.hexdigest(email_address)
+      "http://www.gravatar.com/avatar/#{hash}"
+    end
+
 end

@@ -13,7 +13,7 @@
 				    	<%= text_field_tag :title, 	current_user.try(:title) , { class: "form-control" } %>
 				    	<br/>
 				    	<%= label_tag(:msg, "Mensagem:") %>
-				    	<%= text_area_tag :msg, "", {rows: 8, class: "form-control"} %>
+				    	<%= text_area_tag :msg, "", { rows: 8, class: "form-control" } %>
 				  	</div>
 				    <%= submit_tag "Enviar", class: "btn btn-large btn-primary" %>
 				<% end %>

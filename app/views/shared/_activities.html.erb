@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-md-12 col-centered">
-      <%= will_paginate @activities, renderer: BootstrapPagination::Rails, param_name: 'activities' %>
+      <%= will_paginate @activities, renderer: BootstrapPagination::Rails, param_name: 'activities', params: { current_selection: "activities" } %>
     </div>
   </div>
 </div>
