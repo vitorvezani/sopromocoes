@@ -20,11 +20,12 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    raise
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'Usuário foi excluído com sucesso' }
+        format.html { redirect_to @user, notice: 'Usuário foi inserido com sucesso' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

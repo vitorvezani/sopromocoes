@@ -117,3 +117,7 @@ span.tags
 .tab-pane.fade {
   margin-bottom: 5px;
 }
+
+form#edit_user input {
+  margin-bottom: 10px;
+}

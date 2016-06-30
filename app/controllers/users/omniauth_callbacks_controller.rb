@@ -8,15 +8,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       authenticate!
     else
       # Não cadastrado pelo facebook
-      @user = User.find_by_email(auth.info.email)
-      if @user.persisted?
-        @user.name = auth.info.name
-        @user.image_url = auth.info.image
-        @user.save
+      @user_in_database = User.find_by_email(auth.info.email)
+      if @user_in_database&.persisted?
+        @user_in_database.name = auth.info.name
+        @user_in_database.image_url = auth.info.image
+        @user_in_database.save
+        @user = user_in_database
         authenticate!
       else
+        # TODO: BROKEN
+        raise
         session["devise.facebook_data"] = auth
-        redirect_to new_user_registration_url
+        #redirect_to new_user_registration_url
+        #authenticate!
+        raise
       end
     end
   end
