@@ -31,7 +31,7 @@ when "development"
 	user.unconfirmed_email = nil
 	user.admin = true
 
-	#user.save(validate: false)
+	user.save(validate: false)
 when "production"
 	user = User.new
 
@@ -56,7 +56,7 @@ when "production"
 	user.unconfirmed_email = nil
 	user.admin = true
 
-	#user.save(validate: false)
+	user.save(validate: false)
 end
 
 @parent_category = Category.new(name: 'Moda', parent_id: nil)
