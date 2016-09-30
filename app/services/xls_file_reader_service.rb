@@ -28,7 +28,7 @@ class XlsFileReaderService
 
 	  elsif @affiliate == "lomadee"
 
-			csv = Roo::CSV.new(@file.tempfile, csv_options: {col_sep: "\t", encoding: "Windows-1254"}) # arquivo na memoria
+			csv = Roo::CSV.new(@file.tempfile, csv_options: {col_sep: "\t", encoding: "UTF-8"}) # arquivo na memoria
 
 			if @file.original_filename.include? "ofertas" then
 
@@ -37,15 +37,30 @@ class XlsFileReaderService
 					row = csv.row(i)
 
 					begin
+
 			   		promotion = Promotion.new
-			   		promotion.external_id = row[0]
-			   		promotion.name = row[1].encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+						# offerName 0
+						promotion.name = row[0].encode("UTF-8", invalid: :replace, undef: :replace, replace: "")
+						# productId 1
+						#	offerThumbnail 2
 			   		promotion.image_url = row[2]
+						#	sellerName 3
 			   		promotion.store = find_or_create_store(row, 3)
+						#	discountPercentage 4
 			   		promotion.discount = row[4]
-			   		promotion.price_from = row[5]
-			   		promotion.price_to = row[6]
-			   		promotion.url = row[7]
+						#	sellerId 5
+						#	sellerThumbnail 6
+						#	offerLink 7
+						promotion.url = row[7]
+						#	priceFrom 8
+			   		promotion.price_from = row[8]
+						#	sellerEbitLabel 9
+						#	offerId 10
+						promotion.external_id = row[1]
+						#	priceTo 11
+						promotion.price_to = row[11]
+						#	bpCategoryName 12
+						#	categoryId 13
 			   		promotion.affiliate = @affiliate
 			   		promotion.user = @user
 
@@ -69,7 +84,7 @@ class XlsFileReaderService
 					begin
 			   		coupon = Coupon.new
 			   		coupon.store = find_or_create_store(row, 0)
-			   		coupon.name = row[1].encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+			   		coupon.name = row[1].encode("UTF-8", invalid: :replace, undef: :replace, replace: "")
 			   		coupon.code = row[2]
 			   		coupon.url = row[3]
 			   		coupon.end_at = row[4]

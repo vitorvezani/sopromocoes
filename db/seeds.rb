@@ -12,8 +12,8 @@ when "development"
 
 	user.email = "vitor.vezani@gmail.com"
 	user.username = "vitor_vezani"
-	user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
-	#user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
+	#user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
+	user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
 	user.reset_password_token = nil
 	user.reset_password_sent_at = nil
 	user.remember_created_at = "2016-03-14 02:02:17.320308"
@@ -32,13 +32,37 @@ when "development"
 	user.admin = true
 
 	user.save(validate: false)
+
+  user = User.new
+
+  user.email = "danielssilva86@gmail.com"
+  user.username = "daniel_ssilva"
+  user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
+  user.reset_password_token = nil
+  user.reset_password_sent_at = nil
+  user.remember_created_at = "2016-03-14 02:02:17.320308"
+  user.sign_in_count = 0
+  user.current_sign_in_at = "2016-03-14 02:02:17.335391"
+  user.last_sign_in_at = "2016-03-10 22:28:53.280797"
+  user.current_sign_in_ip = "127.0.0.1"
+  user.last_sign_in_ip = "127.0.0.1"
+  user.created_at = "2016-03-10 22:28:27.392224"
+  user.updated_at = "2016-03-14 02:02:17.336226"
+  user.name = "Daniel Silva"
+  user.confirmation_token = "99Fs2p6TyjvUB4oW1HsB"
+  user.confirmed_at = "2016-03-10 22:28:46.637631"
+  user.confirmation_sent_at = "2016-03-10 22:28:27.528375"
+  user.unconfirmed_email = nil
+  user.admin = true
+
+  user.save(validate: false)
 when "production"
 	user = User.new
 
 	user.email = "clubedasofertas@clubedasofertas.com.br"
 	user.username = "clube_das_ofertas"
-	user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
-	#user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
+	#user.encrypted_password = "$2a$10$fw5qPxbFMdWfX8vsdmybd.4qe2Nae99UvGg23rL.EEdS69T.hKQ5G"
+	user.encrypted_password = "$2a$10$vibfF3pOzLkRuR4VT2bHDeyTqdW8yZ6kwGT016QLlkX3oW4kozvAe" # 123456
 	user.reset_password_token = nil
 	user.reset_password_sent_at = nil
 	user.remember_created_at = "2016-03-14 02:02:17.320308"

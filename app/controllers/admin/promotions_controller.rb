@@ -6,25 +6,29 @@ class Admin::PromotionsController < AdminController
 
   # POST admin/promotions/upload
   def upload
-    xls_file = params[:xls_file]
+    file = params[:file]
+    file_type = params[:file_type]
     affiliate = params[:affiliate].downcase
 
-    if xls_file.nil?
+    if file.nil?
       redirect_to new_admin_promotion_path, notice: "Por favor, selecione o arquivo"
       return
     end
 
-    xls_service = XlsFileReaderService.new(xls_file, affiliate, current_user)
+    if file_type == "XML"
+      import_service = XmlFileReaderService.new(file.tempfile, affiliate, current_user)
+    elsif file_type == "XLS"
+      import_service = XlsFileReaderService.new(file.tempfile, affiliate, current_user)
+    end
 
     begin
-     xls_service.read!
+     import_service.read!
     rescue Exception => ex
       redirect_to new_admin_promotion_path, notice: ex.message
-      return
     end
 
     respond_to do |format|
-      format.html { redirect_to new_admin_promotion_path, notice: xls_file.original_filename + ' lido com sucesso. ' + xls_service.itens_read.to_s + " registros lidos!" }
+      format.html { redirect_to new_admin_promotion_path, notice: file.original_filename + ' lido com sucesso. ' + import_service.itens_read.to_s + " registros lidos!" }
       format.json { head :no_content }
     end
 

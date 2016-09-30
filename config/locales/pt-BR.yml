@@ -1,9 +1,9 @@
 pt-BR:
-  activerecord:
-    models:
-      promotion:
-        name: Nome
-        description: Descrição
+  #activerecord:
+  #  models:
+  #    promotion:
+  #      name: Nome
+  #      description: Descrição
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"
