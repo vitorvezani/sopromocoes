@@ -2,18 +2,18 @@ Rails.application.routes.draw do
   resources :categories
   resources :promotions do
     member do
-      put "love", to: "promotions#love"
+      put 'love', to: 'promotions#love'
     end
   end
   resources :coupons do
     member do
-      put "love", to: "coupons#love"
+      put 'love', to: 'coupons#love'
     end
   end
   resources :stores
   resources :comments do
     member do
-      put "like", to: "comments#upvote"
+      put 'like', to: 'comments#upvote'
     end
   end
 
@@ -24,12 +24,12 @@ Rails.application.routes.draw do
   # Devise routes
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    registrations_controller: "users/registrations_controller"
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
 
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with 'rake routes'.
 
   resources :users
 
@@ -42,8 +42,8 @@ Rails.application.routes.draw do
     resources :coupons
   end
 
-  # You can have the root of your site routed with "root"
-  root to: "promotions#index"
+  # You can have the root of your site routed with 'root'
+  root to: 'promotions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :all_categories
 
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb 'Home', :root_path
 
   def all_categories
       @all_categories = all_cached_categories
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   hide_action :default_current_user
   # END OF HACK
 
-  # Dado um record, retorna se o usuário é "dono" do mesmo
+  # Dado um record, retorna se o usuário é 'dono' do mesmo
   # se não for, seta a variavel @error
   def require_ownership(record)
     if !owns_record(record)
@@ -39,8 +39,15 @@ class ApplicationController < ActionController::Base
 
   private
     def all_cached_categories
-      Rails.cache.fetch("all_cached_categories", expires_in: 12.hours) do
+      Rails.cache.fetch('all_cached_categories', expires_in: 12.hours) do
         Category.where(parent_id: nil).includes(:subcategories)
+      end
+    end
+
+    def authorized?
+      unless current_user.try(:admin?)
+        flash[:error] = 'Você não está autorizado à acessar esta página.'
+        redirect_to root_path
       end
     end
 end

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, :add_breadcrumb_user, only: [:show, :edit, :update, :destroy]
   before_action :load_activities, :load_promotions, :load_coupons, only: [:show]
+  before_action :authorized?, only: [:index]
 
   # GET /users/1
   # GET /users/1.json

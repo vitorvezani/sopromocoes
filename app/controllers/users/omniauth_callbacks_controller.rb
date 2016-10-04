@@ -1,27 +1,31 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    auth = request.env["omniauth.auth"]
+    raise # NOT IMPLEMENTED YET
+    
+    auth = request.env['omniauth.auth']
     # You need to implement the method below in your model (e.g. app/models/user.rb)
+    # Search for provider and uid
     @user = User.from_omniauth_facebook(auth)
 
     if @user.persisted?
       authenticate!
     else
-      # Não cadastrado pelo facebook
+      # Cadastrado pelo sistema mas não pelo facebook
       @user_in_database = User.find_by_email(auth.info.email)
       if @user_in_database&.persisted?
+        # Atualiza informacoes vindas do facebook
         @user_in_database.name = auth.info.name
         @user_in_database.image_url = auth.info.image
+        @user_in_database.provider_facebook = auth.provider
+        @user_in_database.uid_facebook = auth.uid
         @user_in_database.save
-        @user = user_in_database
+        @user = @user_in_database
         authenticate!
       else
-        # TODO: BROKEN
-        raise
-        session["devise.facebook_data"] = auth
+        #session['devise.facebook_data'] = auth
         #redirect_to new_user_registration_url
-        #authenticate!
-        raise
+        #raise
+        authenticate!
       end
     end
   end
@@ -32,7 +36,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
     def authenticate!
+      raise
       sign_in_and_redirect @user #event: :authentication this will throw if @user is not activated
-      set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+      set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
     end
 end

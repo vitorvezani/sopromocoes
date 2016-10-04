@@ -11,11 +11,11 @@ class XmlFileReaderService
 
 	def read!()
 
-	  if @affiliate == "afiliados"
+	  if @affiliate == 'afiliados'
 
       # TODO: Vitor
 
-    elsif @affiliate == "lomadee"
+    elsif @affiliate == 'lomadee'
 
       doc = Nokogiri::XML(File.open(@file)) do |config|
         config.strict.nonet
@@ -49,7 +49,7 @@ class XmlFileReaderService
           promotion.save!
           @itens_read = @itens_read + 1
         rescue Exception => ex
-          Rails.logger.info "Oferta já existente: " + ex.to_s
+          Rails.logger.info 'Oferta já existente: ' + ex.to_s
         end
 
       end
@@ -57,14 +57,14 @@ class XmlFileReaderService
       doc.xpath('//coupon').each do |read_coupon|
 
         begin
-          #t.string   "name",                                   null: false
-          #t.string   "code",                                   null: false
-          #t.text     "url"
-          #t.datetime "begin_at"
-          #t.datetime "end_at"
-          #t.boolean  "enabled",                 default: true, null: false
-          #t.text     "rules_url"
-          #t.string   "affiliate"
+          #t.string   'name',                                   null: false
+          #t.string   'code',                                   null: false
+          #t.text     'url'
+          #t.datetime 'begin_at'
+          #t.datetime 'end_at'
+          #t.boolean  'enabled',                 default: true, null: false
+          #t.text     'rules_url'
+          #t.string   'affiliate'
 
           coupon = Coupon.new
           coupon.store = find_or_create_store(read_coupon.xpath('store/name').text)
@@ -81,13 +81,13 @@ class XmlFileReaderService
           @itens_read = @itens_read + 1
 
         rescue Exception => ex
-          Rails.logger.info "Coupon já existente: " + ex.to_s
+          Rails.logger.info 'Coupon já existente: ' + ex.to_s
         end
 
       end
 
 	  else
-	  	raise Exception, "Afiliado #{@affiliate} não suportado!"
+	  	raise Exception, 'Afiliado #{@affiliate} não suportado!'
 	  end
 	end
 
