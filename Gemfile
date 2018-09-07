@@ -7,7 +7,7 @@ gem 'rails', '4.2.10'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -40,14 +40,14 @@ gem 'cloudinary'
 
 #-- Rails Assets
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-sweetalert'
-  gem 'rails-assets-alertifyjs' # https://alertifyjs.org/#
-  gem 'rails-assets-bootstrap-datepicker'
+  gem 'rails-assets-bootstrap', '~> 3.3.6'
+  gem 'rails-assets-sweetalert', '~> 1.1.3'
+  gem 'rails-assets-alertifyjs', '~> 1.0.10'
+  gem 'rails-assets-bootstrap-datepicker', '~> 1.6.0'
 end
 
 # Fontawesome - https://github.com/bokmann/font-awesome-rails
-gem "font-awesome-rails"
+gem "font-awesome-rails", '~>4.5.0.1'
 
 # A simple Ruby on Rails plugin for creating and managing a breadcrumb navigation. http://www.simonecarletti.com/code/breadcrumbs_on_rails
 gem "breadcrumbs_on_rails"
