@@ -52,7 +52,7 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: :login,
     user_name: "vitor.vezani@gmail.com",
-    password: "1309Viv228658"
+    password: "SENHA_DO_CARALHO"
   }
 
   config.after_initialize do
