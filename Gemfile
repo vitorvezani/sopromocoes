@@ -118,7 +118,7 @@ group :development do
   # Pry
   gem 'pry', '~> 0.10.3'
   # Rack-mini-profiler
-  gem 'rack-mini-profiler', '~> 0.9.8'
+  gem 'rack-mini-profiler', '~> 0.10.1'
 	# awesome_print
 	gem 'awesome_print', '~> 1.6', '>= 1.6.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
