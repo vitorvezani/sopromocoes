@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Ruby Version
-ruby '2.3.8'
+ruby '2.3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.11.1'
+# Bundle used compile sass files
+gem 'sassc-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
-# Use SCSS for stylesheets
-gem 'sassc'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -28,7 +28,7 @@ gem 'roo-xls'
 # RSpec is a Behaviour-Driven Development tool for Ruby programmers
 gem 'rspec'
 #-- Rails Assets
-gem 'bundler', '>= 1.8.4'
+gem 'bundler', '>= 1.17.3', '< 2.0'
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff http://rails-i18n.org
 gem 'rails-i18n', '~> 4.0.0'
 # https://devcenter.heroku.com/articles/rails-integration-gems
@@ -98,7 +98,7 @@ gem 'acts_as_commentable'
 gem 'public_activity'
 
 # Rails Plugin that tracks impressions and page views
-gem 'impressionist'
+gem 'impressionist', '~>1.6.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
