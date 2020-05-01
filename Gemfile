@@ -78,7 +78,7 @@ gem "passenger"
 gem 'therubyracer', platforms: :ruby
 
 # Devise & Omniauth
-gem 'devise', '~> 3.5', '>= 3.5.3'
+gem 'devise', '~> 4.7'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
