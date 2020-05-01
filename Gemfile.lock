@@ -130,7 +130,7 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.0425)
-    mimemagic (0.3.0)
+    mimemagic (0.3.4)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -162,12 +162,12 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    paperclip (4.3.7)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
+    paperclip (5.2.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
       mime-types
-      mimemagic (= 0.3.0)
+      mimemagic (~> 0.3.0)
     passenger (6.0.4)
       rack
       rake (>= 0.8.1)
@@ -336,7 +336,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   omniauth-twitter
-  paperclip (~> 4.3, >= 4.3.2)
+  paperclip (~> 5.2)
   passenger
   pg (~> 0.15)
   pry (~> 0.10.3)
@@ -353,7 +353,6 @@ DEPENDENCIES
   roo (~> 2.3.2)
   roo-xls
   rspec
-  sassc
   sassc-rails
   sdoc (~> 0.4.0)
   spring
