@@ -86,7 +86,7 @@ gem 'omniauth-twitter'
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 
 # Paperclip
-gem 'paperclip', '~> 4.3', '>= 4.3.2'
+gem 'paperclip', '~> 5.2'
 
 # Acts As Votable is a Ruby Gem specifically written for Rails/ActiveRecord models.
 gem 'acts_as_votable', '~> 0.10.0'
